@@ -4,7 +4,7 @@ class CreateProblems < ActiveRecord::Migration
       t.string :color
       t.string :grade
       t.string :image
-      t.string :session_id
+      t.integer :session_id
     end
   end
 end

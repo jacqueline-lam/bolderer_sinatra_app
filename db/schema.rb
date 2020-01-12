@@ -14,20 +14,20 @@
 ActiveRecord::Schema.define(version: 20200112233439) do
 
   create_table "problem_styles", force: :cascade do |t|
-    t.string "problem_id"
-    t.string "style_id"
+    t.integer "problem_id"
+    t.integer "style_id"
   end
 
   create_table "problems", force: :cascade do |t|
-    t.string "color"
-    t.string "grade"
-    t.string "image"
-    t.string "session_id"
+    t.string  "color"
+    t.string  "grade"
+    t.string  "image"
+    t.integer "session_id"
   end
 
   create_table "sessions", force: :cascade do |t|
-    t.date   "date"
-    t.string "user_id"
+    t.date    "date"
+    t.integer "user_id"
   end
 
   create_table "styles", force: :cascade do |t|
