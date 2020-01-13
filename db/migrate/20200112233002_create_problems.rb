@@ -5,6 +5,7 @@ class CreateProblems < ActiveRecord::Migration
       t.string :grade
       t.string :image
       t.integer :session_id
+      t.timestamps null: false
     end
   end
 end
