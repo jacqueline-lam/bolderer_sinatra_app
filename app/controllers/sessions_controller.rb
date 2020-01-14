@@ -19,6 +19,10 @@ class SessionsController < ApplicationController
 
     # Show (one session)
     # get request to '/session/:id'
+    get '/sessions/:id' do
+      @session = Session.find(params[:id])
+      erb :'sessions/show'
+    end
 
   # UPDATE
     # Edit
