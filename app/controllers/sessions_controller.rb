@@ -1,4 +1,4 @@
-require './config/environment'
+ require './config/environment'
 
 class SessionsController < ApplicationController
   # CREATE
@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
     # make get request to '/sessions'
 
     get '/sessions' do
+      @sessions = Session.all
       erb :'sessions/index'
     end
 

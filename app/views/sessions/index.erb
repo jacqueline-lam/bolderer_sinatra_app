@@ -1,0 +1,10 @@
+<!-- interpolate RUby code using ERB tags -->
+<!-- evaluate Ruby code and compile into HTML code before it gets sent to browser -->
+<!-- <%= @sessions %> -->
+
+<h1>Sessions</h1>
+
+<% @sessions.each do |session| %>
+  <h2><%= session.date %></h2>
+  <p><%= session.problems.first.color %>
+<% end %>
