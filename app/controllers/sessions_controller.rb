@@ -12,6 +12,10 @@ class SessionsController < ApplicationController
     # Index (all sessions)
     # make get request to '/sessions'
 
+    get '/sessions' do
+      erb :'sessions/index'
+    end
+
     # Show (one session)
     # get request to '/session/:id'
 
