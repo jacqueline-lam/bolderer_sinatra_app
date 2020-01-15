@@ -1,0 +1,48 @@
+<h1>Create a Session</h1>
+<form action="/sessions" method="POST">
+  <!-- Date -->
+  <input type="date" name="date">
+  <!-- Problems -->
+  <h2>Log a New Problem</h2>
+
+  <!-- when sending form  to controller, all name attributes will be stored in params hash; name to point to key, vaule = data submitted by user   -->
+  <!-- Problem Color -->
+  <label>Color: </label>
+  <% @colors.each do |color| %>
+    <input type="radio" name="problem[color]" id="problem_color" value=""><%= color %>
+  <% end %><br>
+
+  <!-- Problem Grade -->
+  <label>Problem Grade: </label>
+  <select name="problem[grade]">
+    <option value="V0">V0</option>
+    <option value="V1">V1</option>
+    <option value="V2">V2</option>
+    <option value="V3">V3</option>
+    <option value="V4">V4</option>
+    <option value="V5">V5</option>
+    <option value="V6">V6</option>
+    <option value="V7">V7</option>
+    <option value="V8">V8</option>
+    <option value="V9">V9</option>
+    <option value="V10">V10</option>
+    <option value="V11">V11</option>
+    <option value="V12">V12</option>
+    <option value="V13">V13</option>
+  </select><br>
+
+  <!-- Problem Style -->
+  <label> What is the style of the problem? </label>
+  <% @styles.each do |style| %>
+    <input type="checkbox" name="style[:name]" id="<%= style %>" value="<%= style %>"><%= style %><br>
+  <% end %><br>
+
+  <!-- Problem Image URL-->
+  <label>Image URL</label>
+  <input type="text" name="problem[image]">
+  <br><br>
+
+  <!-- Submit the form -->
+  <button type="submit">Add Problem</button>
+  <!-- Add another new problem button -->
+</form>
