@@ -8,6 +8,6 @@
 <% @sessions.each do |session| %>
 
   <ul>
-    <li><a href="/sessions/<%= session.id %>"><%= session.date %></a> - <%= session.problems.count %>problem(s)</li>
+    <li><a href="/sessions/<%= session.id %>"><%= session.date %></a> - <%= session.problems.count %> problem(s)</li>
   </ul>
 <% end %>

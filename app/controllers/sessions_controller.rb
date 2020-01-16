@@ -34,8 +34,11 @@ class SessionsController < ApplicationController
     # get request to '/session/:id'
     get '/sessions/:id' do
       @session = Session.find(params[:id])
-      @problems = Problem.find_by(session_id: params[:id])
-      erb :'sessions/show'
+      @problems = @session.problems
+      # @problems = Problem.find_by(session_id: params[:id])
+      # binding.pry
+
+      erb :"sessions/show"
     end
 
   # UPDATE

@@ -10,6 +10,6 @@ end
 use Rack::MethodOverride
 use ProblemsController
 use SessionsController
-use UserController
+# use UserController
 # Run parent controller
 run ApplicationController
