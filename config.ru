@@ -5,6 +5,8 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 # Mount subsequent controller
+# access middleware's functionality
+# middleware that allows us to use PATH PUT DELETE requests
 use Rack::MethodOverride
 use ProblemsController
 use SessionsController
