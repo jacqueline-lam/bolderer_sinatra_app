@@ -1,11 +1,12 @@
 <!-- Problems -->
-  <h2>Log a New Problem</h2>
+<h2>Log a New Problem</h2>
 
   <!-- when sending form  to controller, all name attributes will be stored in params hash; name to point to key, vaule = data submitted by user   -->
   <!-- Problem Color -->
+<form action="/problems" method="POST">
   <label>Color: </label>
   <% @colors.each do |color| %>
-    <input type="radio" name="color" id="problem_color" value="<%= color %>"><%= color %></input>
+    <input type="radio" name="problem[color]" id="problem_color" value="<%= color %>"><%= color %></input>
   <% end %><br>
 
   <!-- Problem Grade -->
@@ -30,11 +31,14 @@
   <!-- Problem Style -->
   <h3> What is the style of the problem? </h3>
   <% @styles.each do |style| %>
-    <input type="checkbox" name="style" value="<%= style %>"><%= style %><br>
+    <input type="checkbox" name="problem[style][name]" value="<%= style %>"><%= style %><br>
   <% end %><br>
 
   <!-- Problem Image URL-->
   <label>Image URL</label>
-  <input type="text" name="image">
+  <input type="text" name="problem[image]">
   <br><br>
+
+  <button type="submit">Add Problem</button>
+
 </form>

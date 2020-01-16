@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     # New
     # make a get request to '/sessions/new'
     get '/sessions/new' do
-      erb :'sessions/new'
+      erb :"sessions/new"
     end
 
     # Create
@@ -15,10 +15,10 @@ class SessionsController < ApplicationController
       session = Session.new(params)
       if session.save
         #take user to users show page
-        redirect "/session/#{session.id}"
+        redirect "/problems/new"
       else
         #re-render the form
-        redirect '/sessions'
+        redirect '/sessions/new'
       end
     end
 
@@ -51,4 +51,11 @@ class SessionsController < ApplicationController
     # Delete
       # make a delete request to '/sessions/:id'
 
+  # HELPER METHODS
+  helpers do
+    def current_session
+      Session.find(session[:session_id])
+    end
+
+  end
 end

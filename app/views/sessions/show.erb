@@ -13,4 +13,12 @@
       <!-- helper method to display style in sentence -->
       <li>Style: <%= problem.styles_pretty %></li>
     </ul>
+
+    <!-- Add edit problem button -->
+<!--     <form action="problems/:id/edit" method="GET">
+      <button type="submit">Edit Problem
+    </form> -->
   <% end %>
+
+  <form action="/problems/new" method="GET">
+    <button type="submit">Add new problem </button>
