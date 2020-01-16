@@ -1,13 +1,10 @@
- require './config/environment'
+require './config/environment'
 
 class SessionsController < ApplicationController
   # CREATE
     # New
     # make a get request to '/sessions/new'
     get '/sessions/new' do
-      @colors = ["white", "red", "orange", "yellow", "green", "lime", "blue", "pink", "purple", "black"]
-      @styles = ["dyno", "crimps", "slopers", "pinches", "body tension", "compressions", "powerful", "overhang", "dihedral", "slab"]
-      # @styles = Style.all
       erb :'sessions/new'
     end
 
@@ -15,13 +12,19 @@ class SessionsController < ApplicationController
     # make a post request to '/sessions'
     # controller action to handle post request
     post '/sessions' do
-
+      session = Session.new(params)
+      if session.save
+        #take user to users show page
+        redirect "/session/#{session.id}"
+      else
+        #re-render the form
+        redirect '/sessions'
+      end
     end
 
   # READ
-    # Index (all sessions)
+    # Index (all sessions by all users)
     # make get request to '/sessions'
-
     get '/sessions' do
       @sessions = Session.all
       erb :'sessions/index'

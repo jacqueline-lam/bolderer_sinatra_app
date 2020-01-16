@@ -6,7 +6,8 @@
 * build controller actions and passing appropriate data to views
 * build views
 * build navigation
-*
+
+* validation
 
 # Bolderer Sinatra App
 
