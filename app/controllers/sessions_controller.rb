@@ -26,7 +26,8 @@ class SessionsController < ApplicationController
     # Index (all sessions by all users)
     # make get request to '/sessions'
     get '/sessions' do
-      @sessions = Session.all
+      # display most recent sessions first
+      @sessions = Session.all.order('date desc')
       erb :'sessions/index'
     end
 
