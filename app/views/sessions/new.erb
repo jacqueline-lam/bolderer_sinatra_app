@@ -1,4 +1,4 @@
-<h1>Create a Session</h1>
+<h1>Create a New Session</h1>
 <form action="/sessions" method="POST">
   <!-- Date -->
   <input type="date" name="date">
@@ -9,7 +9,7 @@
   <!-- Problem Color -->
   <label>Color: </label>
   <% @colors.each do |color| %>
-    <input type="radio" name="problem[color]" id="problem_color" value=""><%= color %>
+    <input type="radio" name="color" id="problem_color" value="<%= color %>"><%= color %></input>
   <% end %><br>
 
   <!-- Problem Grade -->
@@ -32,14 +32,14 @@
   </select><br>
 
   <!-- Problem Style -->
-  <label> What is the style of the problem? </label>
+  <h3> What is the style of the problem? </h3>
   <% @styles.each do |style| %>
-    <input type="checkbox" name="style[:name]" id="<%= style %>" value="<%= style %>"><%= style %><br>
+    <input type="checkbox" name="style" value="<%= style %>"><%= style %><br>
   <% end %><br>
 
   <!-- Problem Image URL-->
   <label>Image URL</label>
-  <input type="text" name="problem[image]">
+  <input type="text" name="image">
   <br><br>
 
   <!-- Submit the form -->
