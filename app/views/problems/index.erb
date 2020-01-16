@@ -8,10 +8,12 @@
 
 <!-- Display all sessions -->
 <h3>All problems:</h3>
-
-<% @problems.each do |problem| %>
-
-  <ul>
-    <li><a href="/problems/<%= problem.id %>"><%= problem.date %> - <%= problem.color %> <%= problem.grade %>/a></li>
-  </ul>
+<% if @problems.empty? %>
+  <p>Look like you haven't logged any problems!</p>
+<% else %>
+  <% @problems.each do |problem| %>
+    <ul>
+      <li><a href="/problems/<%= problem.id %>"><%= problem.date %> - <%= problem.color %> <%= problem.grade %>/a></li>
+    </ul>
+  <% end %>
 <% end %>
