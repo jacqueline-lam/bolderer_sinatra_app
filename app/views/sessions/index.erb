@@ -4,7 +4,8 @@
 
 <h1>Sessions</h1>
 
+<!-- Display all sessions -->
 <% @sessions.each do |session| %>
   <h2><a href="/sessions/<%= session.id %>"><%= session.date %></a></h2>
-  <p><%= session.problems.first.color %>
+  <li><ul> Sent <%= session.problems.count %> problems </ul></li>
 <% end %>

@@ -1,2 +1,13 @@
+<!-- Display one session -->
 <h1>Session #<%=@session.id%></h1>
 <h3><%= @session.date %></h3>
+
+<!-- Display session's problems -->
+<h3>Problems</h3>
+<% @problems.each do |problem| %>
+  <p><%= problem.id %></p>
+  <p><%= problem.color %></p>
+  <p><%= problem.grade %></p>
+  <p><%= problem.image %></p>
+  <p><%= problem.styles %></p>
+<% end $>

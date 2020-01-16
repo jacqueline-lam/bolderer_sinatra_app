@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     # make a post request to '/sessions'
     # controller action to handle post request
     post '/sessions' do
-      puts params
+
     end
 
   # READ
@@ -31,6 +31,7 @@ class SessionsController < ApplicationController
     # get request to '/session/:id'
     get '/sessions/:id' do
       @session = Session.find(params[:id])
+      @problems = Problem.find_by(session_id: params[:id])
       erb :'sessions/show'
     end
 
