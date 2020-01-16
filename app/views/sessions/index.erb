@@ -6,6 +6,8 @@
 
 <!-- Display all sessions -->
 <% @sessions.each do |session| %>
-  <h2><a href="/sessions/<%= session.id %>"><%= session.date %></a></h2>
-  <li><ul> Sent <%= session.problems.count %> problems </ul></li>
+
+  <ul>
+    <li><a href="/sessions/<%= session.id %>"><%= session.date %></a> - <%= session.problems.count %>problem(s)</li>
+  </ul>
 <% end %>
