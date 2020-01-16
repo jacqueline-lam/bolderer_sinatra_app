@@ -21,17 +21,12 @@ ActiveRecord::Schema.define(version: 20200112233439) do
   end
 
   create_table "problems", force: :cascade do |t|
+    t.date     "date"
     t.string   "color"
     t.string   "grade"
     t.string   "image"
-    t.integer  "session_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "sessions", force: :cascade do |t|
-    t.date    "date"
-    t.integer "user_id"
   end
 
   create_table "styles", force: :cascade do |t|

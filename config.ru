@@ -9,7 +9,7 @@ end
 # middleware that allows us to use PATH PUT DELETE requests
 use Rack::MethodOverride
 use ProblemsController
-use SessionsController
+# use SessionsController
 # use UserController
 # Run parent controller
 run ApplicationController

@@ -1,9 +1,7 @@
-<!-- Problems -->
-<h2>Log a New Problem</h2>
-
+<h2>Log a new problem</h2>
   <!-- when sending form  to controller, all name attributes will be stored in params hash; name to point to key, vaule = data submitted by user   -->
-  <!-- Problem Color -->
 <form action="/problems" method="POST">
+  <!-- Problem Color -->
   <label>Color: </label>
   <% @colors.each do |color| %>
     <input type="radio" name="problem[color]" id="problem_color" value="<%= color %>"><%= color %></input>

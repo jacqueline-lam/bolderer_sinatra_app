@@ -1,0 +1,18 @@
+<!-- Display one problem -->
+<h1>Problem #<%=@problem.id%></h1>
+<h3>Date: <%= @problem.date %></h3>
+<ul>
+  <li>Color: <%= problem.color %></li>
+  <li>Grade: <%= problem.grade %></li>
+  <li>Image: <%=problem.image %> </li>
+  <!-- helper method to display style in sentence -->
+  <li>Style: <%= problem.styles_pretty %></li>
+</ul>
+
+    <!-- Add edit problem button -->
+<!--     <form action="problems/:id/edit" method="GET">
+      <button type="submit">Edit Problem
+    </form> -->
+
+  <form action="/problems/new" method="GET">
+    <button type="submit">Add new problem </button>
