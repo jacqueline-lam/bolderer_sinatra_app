@@ -3,6 +3,7 @@
 * create models with relationships
 * plan out routes for controller following RESTful conventions and map out to CRUD actions
   - back and forth building our forms and controller actions
+  - prevent bad data
 * build controller actions and passing appropriate data to views
 * build views
 * build navigation
