@@ -16,6 +16,10 @@
       <li>
         <a href="/problems/<%= problem.id %>"><%= problem.date %> - <%= problem.color %> <%= problem.grade %>
         </a>
+        <!-- If currently logged_in user created this problem -->
+        <form action="/problems/<%= problem.id %>/edit" method="get">
+           <button type="submit">Edit Problem</button>
+        </form>
       </li>
     </ul>
   <% end %>
