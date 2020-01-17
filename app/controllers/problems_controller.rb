@@ -48,6 +48,7 @@ class ProblemsController < ApplicationController
     # redirect '/login' if !logged_in?
     @problem = Problem.find(params[:id])
     @colors = Problem::COLORS
+    @grades = Problem::GRADES
     @styles = Style.all
     # redirect '/problems' if current_user != @tweet.user
     erb :"problems/edit_problem"
