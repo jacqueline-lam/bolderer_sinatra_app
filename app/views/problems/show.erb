@@ -12,9 +12,16 @@
 <br><br>
 <!-- Add edit problem button -->
 <form action="/problems/<%= @problem.id %>/edit" method="GET">
-  <button type="submit">Edit Problem
+  <button type="submit">Edit Problem</button>
 </form>
 
+<!-- Delete problem -->
+<form action="/problems/<%= @problem.id %>/delete" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Problem">
+</form>
+
+<!-- Add problem -->
 <form action="/problems/new" method="GET">
   <button type="submit">Add new problem </button>
 </form>

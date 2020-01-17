@@ -64,7 +64,14 @@ class ProblemsController < ApplicationController
   end
 
   # DESTROY
-    # Delete
-      # make a delete request to '/problems/:id'
+  # make a delete request to '/problems/:id'
+  delete "/problems/:id/delete" do
+    problem = Problem.find_by_id(params[:id])
+    if problem && problem.destroy
+      redirect '/problems'
+    else
+      redirect "/problesm/#{params[:id]}"
+    end
+  end
 
 end
