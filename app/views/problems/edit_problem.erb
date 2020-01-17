@@ -3,6 +3,7 @@
 
 <form action="/problems/<%= @problem.id %>" method="POST">
   <!--post gets translated to a patch request-->
+  <!-- modifies an existing problem based on ID in the url -->
   <input id="hidden" type="hidden" name="_method" value="patch">
 
   <h3> Original Problem:</h3>
