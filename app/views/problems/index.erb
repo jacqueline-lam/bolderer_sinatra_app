@@ -3,7 +3,7 @@
 
 <h1>Problems</h1>
 
-<!-- Create link to create session -->
+<!-- Link to create session -->
 <a href="/problems/new">Create a new problem</a>
 
 <!-- Display all sessions -->
@@ -13,7 +13,10 @@
 <% else %>
   <% @problems.each do |problem| %>
     <ul>
-      <li><a href="/problems/<%= problem.id %>"><%= problem.date %> - <%= problem.color %> <%= problem.grade %>/a></li>
+      <li>
+        <a href="/problems/<%= problem.id %>"><%= problem.date %> - <%= problem.color %> <%= problem.grade %>
+        </a>
+      </li>
     </ul>
   <% end %>
 <% end %>

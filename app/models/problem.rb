@@ -4,6 +4,19 @@ class Problem < ActiveRecord::Base
   has_many :styles, :through => :problem_styles
   validates_presence_of :date, :color, :grade
 
+  COLORS = [
+    "white",
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "lime",
+    "blue",
+    "pink",
+    "purple",
+    "black"
+  ]
+
   def styles_pretty
     return styles.map(&:name).join(', ')
   end

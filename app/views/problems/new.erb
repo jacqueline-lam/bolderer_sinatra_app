@@ -31,9 +31,17 @@
   </select><br>
 
   <!-- Problem Style -->
-  <h3> What is the style of the problem? </h3>
-   <!-- iterate through style -->
-   <!-- input type="checkbox" name="problem[styles]" value=" style" style<br> -->
+  <h3>What is the style of the problem?</h3>
+  <!-- iterate through styles -->
+  <% @styles.each do |style| %>
+    <!-- array of style IDs is stored inside 'problem' hash -->
+    <!-- when checkbox is selected, value (style's id), is what gets sent through to the params hash -->
+    <input type="checkbox" name="problem[style_id][]"  value="<%= style.id %>">
+      <%= style.name %>
+    </input>
+
+    <br>
+  <% end %>
 
   <!-- Problem Image URL-->
   <label>Image URL</label>

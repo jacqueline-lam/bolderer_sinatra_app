@@ -4,20 +4,20 @@ class ProblemsController < ApplicationController
   # CREATE
   # make a get request to '/sessions/new'
   get '/problems/new' do
-    @colors = ["white", "red", "orange", "yellow", "green", "lime", "blue", "pink", "purple", "black"]
-    # @styles = ["dyno", "crimps", "jugs", "slopers", "pinches", "body tension", "compressions", "powerful", "overhang", "dihedral", "slab"]
-    # @styles = Style.all
+    @colors = Problem::COLORS
+    @styles = Style.all
     erb :'problems/new'
   end
 
   # make a post request to '/problems'
   # controller action to handle post request
   post '/problems' do
-    @problem = Problem.new
-    @problem.date = params[:problem][:date]
-    @problem.color = params[:problem][:color]
-    @problem.grade = params[:problem][:grade]
-    @problem.image = params[:problem][:image]
+    # binding.pry
+    @problem = Problem.new(params[:problem])
+    # @problem.date = params[:problem][:date]
+    # @problem.color = params[:problem][:color]
+    # @problem.grade = params[:problem][:grade]
+    # @problem.image = params[:problem][:image]
     # @problem.styles = params[:problem][:styles]
     if @problem.save
       #take user to users show page
