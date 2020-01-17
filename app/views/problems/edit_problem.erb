@@ -1,13 +1,22 @@
 <!-- Form to update specific problem -->
 <!-- POSTs to a controller action patch '/problems/:id' -->
+<h1> Edit a Problem</h1>
+
+<!-- Print error message -->
+<% if @error %>
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Error!</strong> Data invalid. Please select at least one style.
+  </div>
+<% end %>
 
 <form action="/problems/<%= @problem.id %>" method="POST">
   <!--post gets translated to a patch request-->
   <!-- modifies an existing problem based on ID in the url -->
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <h3> Original Problem:</h3>
-  <h4>Problem #<%=@problem.id%></h1>
+  <h2> Original Problem:</h2>
+  <h3>Problem #<%=@problem.id%></h3>
   <h4>Date: <%= @problem.date %></h3>
   <ul>
     <li>Color: <%= @problem.color %></li>
@@ -53,10 +62,7 @@
   <h3>What is the style of the problem?</h3>
   <!-- iterate through styles -->
   <% @styles.each do |style| %>
-    <!-- array of style IDs is stored inside 'problem' hash -->
-    <!-- when checkbox is selected, value (style's id), is what gets sent through to the params hash -->
-
-    <input type="checkbox" name="problem[style_ids][]"  value="<%= style.id %>" <%='checked' if @problem.styles.include?(style.name) %>>
+    <input type="checkbox" name="problem[style_ids][]"  value="<%= style.id %>" <%='checked' if @problem.styles_pretty.include?(style.name) %>>
       <%= style.name %>
     </input>
 
@@ -68,5 +74,5 @@
   <input type="text" name="problem[image]">
   <br><br>
 
-<input type="submit" name="submit" value="submit">
+<input type="submit" value="submit">
 </form>

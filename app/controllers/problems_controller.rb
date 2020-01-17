@@ -59,15 +59,22 @@ class ProblemsController < ApplicationController
   # using id from params, update and save instance
   patch "/problems/:id" do
     @problem = Problem.find(params[:id])
-    @problem.update(params[:problem])
-    redirect "problems/#{@problem.id}"
+    if params[:problem].include?("style_ids")
+      @problem.update(params[:problem])
+      redirect "/problems/#{@problem.id}"
+    else
+      @error = true
+      @colors = Problem::COLORS
+      @styles = Style.all
+      erb :"/problems/edit_problem"
+    end
   end
 
   # DESTROY
   # make a delete request to '/problems/:id'
   delete "/problems/:id/delete" do
     problem = Problem.find_by_id(params[:id])
-    if problem && problem.destroy
+    if problem && problem.delete
       redirect '/problems'
     else
       redirect "/problesm/#{params[:id]}"
