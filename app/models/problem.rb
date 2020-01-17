@@ -18,6 +18,6 @@ class Problem < ActiveRecord::Base
   ]
 
   def styles_pretty
-    return styles.map(&:name).join(', ')
+    styles.map(&:name).join(', ')
   end
 end

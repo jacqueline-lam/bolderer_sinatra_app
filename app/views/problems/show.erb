@@ -6,13 +6,15 @@
   <li>Grade: <%= @problem.grade %></li>
   <li>Image: <%= @problem.image %> </li>
   <!-- helper method to display style in sentence -->
-  <!-- Style: problem.styles_pretty -->
+  <li>Styles: <%= @problem.styles_pretty %></li>
 </ul>
 
-    <!-- Add edit problem button -->
-<!--     <form action="problems/:id/edit" method="GET">
-      <button type="submit">Edit Problem
-    </form> -->
+<br><br>
+<!-- Add edit problem button -->
+<form action="problems/<%= @problem.id %>/edit" method="GET">
+  <button type="submit">Edit Problem
+</form>
 
-  <form action="/problems/new" method="GET">
-    <button type="submit">Add new problem </button>
+<form action="/problems/new" method="GET">
+  <button type="submit">Add new problem </button>
+</form>
