@@ -52,11 +52,4 @@
 #     # Delete
 #       # make a delete request to '/sessions/:id'
 
-#   # HELPER METHODS
-#   helpers do
-#     def current_session
-#       Session.find(session[:session_id])
-#     end
-
-#   end
 # end

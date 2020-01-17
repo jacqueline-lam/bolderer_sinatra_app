@@ -1,0 +1,68 @@
+<form action="/problems/<%= @problem.id %>" method="POST">
+  <!--post gets translated to a patch request-->
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <h3> Original Problem:</h3>
+  <h4>Problem #<%=@problem.id%></h1>
+  <h4>Date: <%= @problem.date %></h3>
+  <ul>
+    <li>Color: <%= @problem.color %></li>
+    <li>Grade: <%= @problem.grade %></li>
+    <li>Image: <%= @problem.image %> </li>
+    <!-- helper method to display style in sentence -->
+    <li>Styles: <%= @problem.styles_pretty %></li>
+  </ul>
+
+  <h3> Edit Problem # <%=@problem.id %></h3>
+
+  <!-- Date -->
+  <label>Date: </label>
+  <input type="date" name="problem[date]" value="<%= @problem.date %>"><br>
+
+  <!-- Problem Color -->
+  <label>Color: </label>
+  <% @colors.each do |color| %>
+    <input type="radio" name="problem[color]" value="<%= @problem.color %>" <%= 'checked' if color == @problem.color %>required><%= color %></input>
+  <% end %><br>
+
+  <!-- Problem Grade -->
+  <label>Problem Grade: </label>
+  <select name="problem[grade]" required>
+    <option value="">Choose a V-grade</option>
+    <option value="V0">V0</option>
+    <option value="V1">V1</option>
+    <option value="V2">V2</option>
+    <option value="V3">V3</option>
+    <option value="V4">V4</option>
+    <option value="V5">V5</option>
+    <option value="V6">V6</option>
+    <option value="V7">V7</option>
+    <option value="V8">V8</option>
+    <option value="V9">V9</option>
+    <option value="V10">V10</option>
+    <option value="V11">V11</option>
+    <option value="V12">V12</option>
+    <option value="V13">V13</option>
+  </select><br>
+
+  <!-- Problem Style -->
+  <h3>What is the style of the problem?</h3>
+  <!-- iterate through styles -->
+  <% @styles.each do |style| %>
+    <!-- array of style IDs is stored inside 'problem' hash -->
+    <!-- when checkbox is selected, value (style's id), is what gets sent through to the params hash -->
+
+    <input type="checkbox" name="problem[style_ids][]"  value="<%= style.id %>" <%='checked' if @problem.styles.include?(style.name) %>>
+      <%= style.name %>
+    </input>
+
+    <br>
+  <% end %>
+
+  <!-- Problem Image URL-->
+  <label>Image URL</label>
+  <input type="text" name="problem[image]">
+  <br><br>
+
+<input type="submit" name="submit" value="submit">
+</form>

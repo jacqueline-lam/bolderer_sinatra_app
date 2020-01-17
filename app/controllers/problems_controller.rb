@@ -5,6 +5,7 @@ class ProblemsController < ApplicationController
   # make a get request to '/sessions/new'
   get '/problems/new' do
     @colors = Problem::COLORS
+    @grades = Problem::GRADES
     @styles = Style.all
     erb :'problems/new'
   end
@@ -45,6 +46,8 @@ class ProblemsController < ApplicationController
   get "/problems/:id/edit" do
     # redirect '/login' if !logged_in?
     @problem = Problem.find(params[:id])
+    @colors = Problem::COLORS
+    @styles = Style.all
     # redirect '/tweets' if current_user != @tweet.user
     erb :"problems/edit_problem"
   end
