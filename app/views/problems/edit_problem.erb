@@ -1,3 +1,6 @@
+<!-- Form to update specific problem -->
+<!-- POSTs to a controller action patch '/problems/:id' -->
+
 <form action="/problems/<%= @problem.id %>" method="POST">
   <!--post gets translated to a patch request-->
   <input id="hidden" type="hidden" name="_method" value="patch">
@@ -22,7 +25,7 @@
   <!-- Problem Color -->
   <label>Color: </label>
   <% @colors.each do |color| %>
-    <input type="radio" name="problem[color]" value="<%= @problem.color %>" <%= 'checked' if color == @problem.color %>required><%= color %></input>
+    <input type="radio" name="problem[color]" value="<%= color %>" <%= 'checked' if color == @problem.color %>required><%= color %></input>
   <% end %><br>
 
   <!-- Problem Grade -->

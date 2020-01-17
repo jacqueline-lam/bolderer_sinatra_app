@@ -25,16 +25,16 @@ class ProblemsController < ApplicationController
   end
 
   # READ
-  # Index (all sessions by all users)
-  # make get request to '/sessions'
+  # Index (all problems by all users)
+  # make get request to '/problems'
   get '/problems' do
-    # display most recent sessions first
+    # display most recent problems first
     @problems = Problem.all.order('date desc')
     erb :'problems/index'
   end
 
-  # Show (one session)
-  # get request to '/session/:id'
+  # Show (one problem)
+  # get request to '/problems/:id'
   get '/problems/:id' do
     @problem = Problem.find(params[:id])
     erb :"problems/show"
@@ -42,21 +42,29 @@ class ProblemsController < ApplicationController
 
   # UPDATE
   # Edit
-  # make a get request to '/sessions/:id/edit'
+  # make a get request to '/problems/:id/edit'
+  # renders view edit_problem.erb
   get "/problems/:id/edit" do
     # redirect '/login' if !logged_in?
     @problem = Problem.find(params[:id])
     @colors = Problem::COLORS
     @styles = Style.all
-    # redirect '/tweets' if current_user != @tweet.user
+    # redirect '/problems' if current_user != @tweet.user
     erb :"problems/edit_problem"
   end
 
   # Update
-  # make a patch request to '/sessions/:id/''
+  # make a patch request to '/problems/:id/''
+  # find instnace of the model to update,
+  # using id from params, update and save instance
+  patch "/problems/:id" do
+    @problem = Problem.find(params[:id])
+    @problem.update(params[:problem])
+    redirect "problems/#{@problem.id}"
+  end
 
   # DESTROY
     # Delete
-      # make a delete request to '/sessions/:id'
+      # make a delete request to '/problems/:id'
 
 end
