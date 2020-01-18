@@ -4,6 +4,7 @@ class ProblemsController < ApplicationController
   # CREATE
   # make a get request to '/sessions/new'
   get '/problems/new' do
+    redirect '/login' if !logged_in
     @colors = Problem::COLORS
     @grades = Problem::GRADES
     @styles = Style.all
@@ -14,6 +15,7 @@ class ProblemsController < ApplicationController
   # controller action to handle post request
   post '/problems' do
     @problem = Problem.new(params[:problem])
+    @problem.user = current_user
 
     if @problem.save
       #take user to users show page
@@ -28,7 +30,9 @@ class ProblemsController < ApplicationController
   # Index (all problems by all users)
   # make get request to '/problems'
   get '/problems' do
-    # display most recent problems first
+    # redirect '/login' if !logged_in?
+    # Display most recent problems first
+    @user = current_user
     @problems = Problem.all.order('date desc')
     erb :'problems/index'
   end

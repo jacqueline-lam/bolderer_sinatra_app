@@ -8,8 +8,8 @@ end
 # access middleware's functionality
 # middleware that allows us to use PATH PUT DELETE requests
 use Rack::MethodOverride
-use UsersController
-use SessionsController
 use ProblemsController
+use SessionsController
+use UsersController
 # Run parent controller
 run ApplicationController

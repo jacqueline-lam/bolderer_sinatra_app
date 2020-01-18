@@ -51,6 +51,8 @@ GEM
     pry (0.12.2)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
+    pry-nav (0.3.0)
+      pry (>= 0.9.10, < 0.13.0)
     public_suffix (4.0.3)
     rack (2.1.1)
     rack-protection (2.0.8.1)
@@ -118,6 +120,7 @@ DEPENDENCIES
   capybara
   database_cleaner!
   pry
+  pry-nav
   rack-test
   rake
   require_all

@@ -9,6 +9,7 @@ gem 'sqlite3', '~> 1.3.6'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'pry-nav'
 gem 'bcrypt'
 gem 'tux'
 
