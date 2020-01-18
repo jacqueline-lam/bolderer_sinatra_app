@@ -25,4 +25,17 @@ class UsersController < ApplicationController
   end
 
   # users can delete account
+
+  # Helper methods
+  helpers do
+    def logged_in?
+      #check if current_user variable is set
+      #!! converts value to boolean
+      !!session[:user_id]
+    end
+
+    def current_user
+      @user = User.find(session[:user_id])
+    end
+  end
 end
