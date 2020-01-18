@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
     # Won't be saved to db unless user filled out password
     if !user.username || !user.password
-      @error = "Error: Please enter a username and password!"
+      @error = "Please enter a username and password!"
       erb :'/users/new'
     # No existing username
     elsif User.find_by(username: user.username)
