@@ -13,7 +13,7 @@ class UsersController < ApplicationController
     if !user.username || !user.password
       @error = "Please enter a username and password!"
       erb :'/users/new'
-    # No existing username
+    # Check if there is an existing username
     elsif User.find_by(username: user.username)
       @error = "This username already exists. Please create a new username."
       erb :'/users/new'

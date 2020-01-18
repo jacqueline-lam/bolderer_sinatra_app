@@ -1,24 +1,32 @@
 require './config/environment'
 
 class ProblemsController < ApplicationController
+  # READ-  Index Action (all problems by all users)
+  # make get request to '/problems'
+  get '/problems' do
+    redirect '/login' if !logged_in?
+    @user = current_user
+    # Display most recent problems first
+    @problems = Problem.all.order('date desc')
+    erb :'problems/index'
+  end
+
   # CREATE
-  # make a get request to '/sessions/new'
+  # Shows the 'new problem' form and makes a new problem
   get '/problems/new' do
-    redirect '/login' if !logged_in
+    redirect '/login' if !logged_in?
     @colors = Problem::COLORS
     @grades = Problem::GRADES
     @styles = Style.all
     erb :'problems/new'
   end
 
-  # make a post request to '/problems'
-  # controller action to handle post request
   post '/problems' do
     @problem = Problem.new(params[:problem])
     @problem.user = current_user
 
     if @problem.save
-      #take user to users show page
+      #take user to problem show page
       redirect "/problems/#{@problem.id}"
     else
       #re-render the form
@@ -26,20 +34,10 @@ class ProblemsController < ApplicationController
     end
   end
 
-  # READ
-  # Index (all problems by all users)
-  # make get request to '/problems'
-  get '/problems' do
-    # redirect '/login' if !logged_in?
-    # Display most recent problems first
-    @user = current_user
-    @problems = Problem.all.order('date desc')
-    erb :'problems/index'
-  end
-
-  # Show (one problem)
+  # READ - Show Action (one problem)
   # get request to '/problems/:id'
   get '/problems/:id' do
+    redirect '/login' if !logged_in?
     @problem = Problem.find(params[:id])
     erb :"problems/show"
   end
@@ -49,7 +47,7 @@ class ProblemsController < ApplicationController
   # make a get request to '/problems/:id/edit'
   # renders view edit_problem.erb
   get "/problems/:id/edit" do
-    # redirect '/login' if !logged_in?
+    redirect '/login' if !logged_in?
     @problem = Problem.find(params[:id])
     @colors = Problem::COLORS
     @grades = Problem::GRADES

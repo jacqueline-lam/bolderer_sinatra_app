@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200112233439) do
+ActiveRecord::Schema.define(version: 20200118174158) do
 
   create_table "problem_styles", force: :cascade do |t|
     t.integer  "problem_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20200112233439) do
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "styles", force: :cascade do |t|
