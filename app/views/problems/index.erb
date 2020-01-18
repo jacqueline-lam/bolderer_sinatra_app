@@ -1,4 +1,4 @@
-<!-- interpolate RUby code using ERB tags -->
+<!-- interpolate Ruby code using ERB tags -->
 <!-- evaluate Ruby code and compile into HTML code before it gets sent to browser -->
 <h1>Welcome, <%= @user.username %></h1>
 <h2>Problems</h2>
@@ -7,19 +7,21 @@
 <a href="/problems/new">Create a new problem</a>
 
 <!-- Display all sessions -->
-<h3>All problems:</h3>
+<h3>All problem logs:</h3>
 <% if @problems.empty? %>
-  <p>Look like you haven't logged any problems!</p>
+  <p>There are no existing problems!</p>
 <% else %>
   <% @problems.each do |problem| %>
     <ul>
       <li>
-        <a href="/problems/<%= problem.id %>"><%= problem.date %> - <%= problem.color %> <%= problem.grade %>
-        </a>
+        <%= @user.username %>: <a href="/problems/<%= problem.id %>"><%= problem.date %> — <%= problem.color %> <%= problem.grade %></a>
         <!-- If currently logged_in user created this problem -->
-        <form action="/problems/<%= problem.id %>/edit" method="get">
-           <button type="submit">Edit Problem</button>
-        </form>
+        <% if problem.user == current_user %>
+          <form action="/problems/<%= problem.id %>/edit" method="get">
+             <button type="submit">Edit Problem</button>
+          </form>
+
+        <% end %>
       </li>
     </ul>
   <% end %>

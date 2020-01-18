@@ -23,6 +23,7 @@ class ProblemsController < ApplicationController
 
   post '/problems' do
     @problem = Problem.new(params[:problem])
+    # persist problem object to db
     @problem.user = current_user
 
     if @problem.save
@@ -49,6 +50,8 @@ class ProblemsController < ApplicationController
   get "/problems/:id/edit" do
     redirect '/login' if !logged_in?
     @problem = Problem.find(params[:id])
+    # User authorization - only the user who created the problem can edit it
+    redirect '/problems' if current_user != @problem.user
     @colors = Problem::COLORS
     @grades = Problem::GRADES
     @styles = Style.all
@@ -78,10 +81,14 @@ class ProblemsController < ApplicationController
   # make a delete request to '/problems/:id'
   delete "/problems/:id/delete" do
     problem = Problem.find_by_id(params[:id])
-    if problem && problem.delete
-      redirect '/problems'
+    if current_user == problem.user
+      if problem && problem.delete
+        redirect "/users/#{problem.user_id}"
+      else
+        redirect "/problems/#{params[:id]}"
+      end
     else
-      redirect "/problesm/#{params[:id]}"
+      redirect '/problems'
     end
   end
 

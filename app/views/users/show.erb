@@ -1,0 +1,24 @@
+<h1> <%= @user.username.capitalize %>'s Problem Logs</h1>
+
+<!-- Link to create session -->
+<a href="/problems/new">Create a new problem</a>
+
+<!-- Display all sessions -->
+<h3>All problem logs:</h3>
+<% if @problems.empty? %>
+  <p>Look like <%= @user.username %> doesn't have any problems!</p>
+<% else %>
+  <% @problems.each do |problem| %>
+    <ul>
+      <li>
+        <a href="/problems/<%= problem.id %>"><%= problem.date %> — <%= problem.color %> <%= problem.grade %></a>
+        <!-- If currently logged_in user created this problem -->
+        <% if problem.user == current_user %>
+          <form action="/problems/<%= problem.id %>/edit" method="get">
+             <button type="submit">Edit Problem</button>
+          </form>
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+<% end %>

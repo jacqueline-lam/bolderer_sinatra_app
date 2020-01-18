@@ -14,11 +14,15 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+    <!-- Navigation -->
     <div>
-      <div><a href="/problems">Problems</a></div>
+      <div><a href="/problems">All Problems</a></div>
       <div><a href="/">Home</a></div>
-      <div><a href="/logout">Log Out</a></div>
-
+      <% if logged_in? %>
+        <div><a href="/logout">Log Out</a></div>
+      <% else %>
+        <div><a href="/">Sign up/ Log in</a></div>
+      <% end %>
     </div>
     <div class="wrapper">
 

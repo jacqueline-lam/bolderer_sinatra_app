@@ -1,9 +1,11 @@
 <h1>Welcome to Bolderer</h1>
 <h3>Log your climbs and check out your friends' progress!</h3>
 <hr><br>
-<form action="/login" method="get">
-  <button type="submit">Log in</button>
-</form><br>
-<form action="/signup" method="get">
-  <button type="submit">Create Account</button>
-</form>
+<% if !logged_in? %>
+  <form action="/login" method="get">
+    <button type="submit">Log in</button>
+  </form><br>
+  <form action="/signup" method="get">
+    <button type="submit">Create Account</button>
+  </form>
+<% end %>
