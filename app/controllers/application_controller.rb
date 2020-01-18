@@ -1,5 +1,7 @@
 require './config/environment'
 
+# Inherit from Sinatra::Base and
+# define the HTTP interface for our application
 class ApplicationController < Sinatra::Base
 
   configure do

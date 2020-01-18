@@ -1,7 +1,12 @@
-<h1> <%= @user.username.capitalize %>'s Problem Logs</h1>
+<h1> @<%= @user.username %>'s Problem Logs</h1>
 
 <!-- Link to create session -->
 <a href="/problems/new">Create a new problem</a>
+
+<!-- <h3><%= @user.username %>'s Project Summary</h3> -->
+<!-- Show charts -->
+<!-- 1. Styles by Month-over-Month -->
+<!-- 2. Grades by Month-over-Month -->
 
 <!-- Display all sessions -->
 <h3>All problem logs:</h3>
@@ -14,8 +19,14 @@
         <a href="/problems/<%= problem.id %>"><%= problem.date %> — <%= problem.color %> <%= problem.grade %></a>
         <!-- If currently logged_in user created this problem -->
         <% if problem.user == current_user %>
+          <!-- Edit problem button -->
           <form action="/problems/<%= problem.id %>/edit" method="get">
              <button type="submit">Edit Problem</button>
+          </form>
+          <!-- Delete problem button -->
+          <form action="/problems/<%= problem.id %>/delete" method="POST">
+            <input id="hidden" type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete Problem">
           </form>
         <% end %>
       </li>
