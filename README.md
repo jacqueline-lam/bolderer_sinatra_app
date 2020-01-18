@@ -5,7 +5,9 @@
   - back and forth building our forms and controller actions
   - prevent bad data
 * build controller actions and passing appropriate data to views
-* build views
+* Add user authentication - UsersController where user could signup
+* Add user authorization
+* build views (forms)
 * build navigation
 
 * validation

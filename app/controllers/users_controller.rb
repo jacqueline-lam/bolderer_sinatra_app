@@ -31,6 +31,7 @@ class UsersController < ApplicationController
     def logged_in?
       #check if current_user variable is set
       #!! converts value to boolean
+      # use session to determine the definition of being logged in
       !!session[:user_id]
     end
 

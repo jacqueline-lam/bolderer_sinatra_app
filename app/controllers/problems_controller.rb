@@ -54,7 +54,8 @@ class ProblemsController < ApplicationController
     erb :"problems/edit_problem"
   end
 
-  # Update
+  # UPDATE
+  # Edit
   # make a patch request to '/problems/:id/''
   # find instnace of the model to update,
   # using id from params, update and save instance
