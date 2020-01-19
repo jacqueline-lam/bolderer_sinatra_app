@@ -18,6 +18,45 @@
 <% if @problems.empty? %>
   <p>There are no existing problems!</p>
 <% else %>
+
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <th>Username</th>
+      <th>Date</th>
+      <th>Color</th>
+      <th>Grade</th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <% @problems.each do |problem| %>
+        <tr>
+          <td><%= problem.user.username %></td>
+          <td><%= problem.date %></td>
+          <td><%= problem.color %></td>
+          <td><%= problem.grade %></td>
+          <% if problem.user == current_user %>
+            <form action="/problems/<%= problem.id %>/edit" method="GET">
+               <td>
+                <button class="btn btn-primary btn-sm" type="submit">Edit Problem</button>
+              </td>
+            </form>
+
+            <form action="/problems/<%= problem.id %>/delete" method="POST">
+              <input id="hidden" type="hidden" name="_method" value="DELETE">
+              <td>
+                <button type="submit" class="btn btn-sm btn-danger">Delete Problem</button>
+              </td>
+            </form>
+          <% else %>
+            <td></td>
+            <td></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
   <% @problems.each do |problem| %>
     <ul>
       <li>
