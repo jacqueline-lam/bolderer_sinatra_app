@@ -23,19 +23,36 @@ TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add this line to your terminal:
 
-```ruby
-gem 'bolderer_sinatra_app'
+```git
+clone "git@github.com:jacqueline-lam/bolderer_sinatra_app.git"
 ```
 
-And then execute:
+And change directory to:
 
-    $ bundle
+    $ cd bolderer_sinatra_app
 
-Or install it yourself as:
+If you don't have Ruby, please install Ruby version `ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-darwin18]
+`
 
-    $ gem install bolderer_sinatra_app
+And then run:
+
+    $ gem install bundler
+
+And then run:
+
+    $ bundle install
+
+And then run:
+
+    $ rake db:seed
+
+And then run:
+
+    $ shotgun
+
+And go to http://localhost:9393 or the IP Address:PORT provided.
 
 ## Usage
 

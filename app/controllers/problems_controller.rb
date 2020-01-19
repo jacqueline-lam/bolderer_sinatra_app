@@ -30,6 +30,7 @@ class ProblemsController < ApplicationController
       @styles = Style.all
       erb :"/problems/new"
     else
+      # problem.image = nil if problem.image.empty?
       # persist problem object to db
       problem.user = current_user
       if problem.save
