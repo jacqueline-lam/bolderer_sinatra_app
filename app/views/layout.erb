@@ -19,9 +19,10 @@
     <div class="container">
       <!-- Navigation -->
       <div>
-        <div><a href="/problems">All Problems</a></div>
         <div><a href="/">Home</a></div>
+        <div><a href="/problems">All Problems</a></div>
         <% if logged_in? %>
+          <div><a href="/users/<%= current_user.id %>">Your problems</a></div>
           <div><a href="/logout">Log Out</a></div>
         <% else %>
           <div><a href="/">Sign up/ Log in</a></div>
