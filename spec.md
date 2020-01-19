@@ -24,7 +24,7 @@ Specs:
   - Views are protested based on helper methods `logged_in?` and `current_user`
   - User authorization - users can only edit/ delete the resources (problems) they created
   - `session_hash` dictates what user can see/ edit
-  - Request user to verify identiy by logging in (with valid crtedentials)
+  - Request user to verify identityy by logging in (with valid credentials)
 - [x] Include user input validations
   - No blank username/ password when submitting user sign up form
   - New/ Edit problem form cannot be submitted without a chosen color, grade, and style(s) according to HTML form - image is optional;
