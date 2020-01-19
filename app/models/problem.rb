@@ -5,16 +5,16 @@ class Problem < ActiveRecord::Base
   validates_presence_of :date, :color, :grade
 
   COLORS = [
-    "white",
-    "red",
-    "orange",
-    "yellow",
-    "green",
-    "lime",
-    "blue",
-    "pink",
-    "purple",
-    "black"
+    "White",
+    "Red",
+    "Orange",
+    "Yellow",
+    "Green",
+    "Lime",
+    "Blue",
+    "Pink",
+    "Purple",
+    "Black"
   ]
 
   GRADES = [
