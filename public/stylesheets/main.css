@@ -1,6 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed&display=swap');
 
+/*Navigation
+----------------------------------------------------*/
+.navbar-brand{
+  font-family: 'Roboto';
+  font-size: 2.8em;
+  padding-right: 30px;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: white;
+    background-color: #edd955;
+}
+
+/*Body
+------------------------------------------------------*/
 html{
   position: relative;
   min-height: 100%;
@@ -37,7 +52,8 @@ h1{
   padding-bottom: 5%;
 }
 
-/* ERROR MESSAGE ON EDIT PROBLEM '/problems/edit_problem' IEW*/
+/* ERROR MESSAGE
+-------------------------------------------------*/
 /* The alert message box */
 .alert {
   padding: 20px;
@@ -61,6 +77,12 @@ h1{
 /* When moving the mouse over the close button */
 .closebtn:hover {
   color: black;
+}
+
+/*Imgur Embed Image
+--------------------------------------------------*/
+iframe .imgur-embed-iframe-pub.image{
+  background-color: white;
 }
 
 /* FOOTER

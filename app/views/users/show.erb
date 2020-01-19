@@ -15,7 +15,6 @@
 <% else %>
   <table class="table table-bordered table-striped table-hover">
     <thead class="thead-dark">
-      <th>Username</th>
       <th>Date</th>
       <th>Color</th>
       <th>Grade</th>
@@ -28,7 +27,6 @@
 
     <% @problems.each do |problem| %>
       <tr>
-        <td><%= problem.user.username %></td>
         <td><%= problem.date %></td>
         <td><%= problem.color %></td>
         <td><%= problem.grade %></td>

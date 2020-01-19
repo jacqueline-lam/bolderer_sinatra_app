@@ -10,24 +10,44 @@
     <title>Bolderer</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/stylesheets/main.css"/>
   </head>
   <body>
     <div class="container">
       <!-- Navigation -->
-      <div>
-        <div><a href="/">Home</a></div>
-        <div><a href="/problems">All Problems</a></div>
-        <% if logged_in? %>
-          <div><a href="/users/<%= current_user.id %>">Your problems</a></div>
-          <div><a href="/logout">Log Out</a></div>
-        <% else %>
-          <div><a href="/">Sign up/ Log in</a></div>
-        <% end %>
-      </div>
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+      <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Bolderer</a>
+          </div>
+
+          <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li><a href="/">Home</a></li>
+              <% if logged_in? %>
+                <li><a href="/problems">All problems</a></li>
+                <li><a href="/users/<%= current_user.id %>">Your Problems</a></li>
+                <li><a href="/logout">Log Out</a></li>
+              <% else %>
+                <li><a href="/">Sign up/ Log in</a></li>
+              <% end %>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+
       <div class="wrapper">
 
           <%= yield %>
@@ -41,8 +61,10 @@
        </div>
     </footer>
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="/js/bootstrap.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap JavaScript) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Link to Bootstrap's JavaScript plugins -->
+    <script src="js/bootstrap.min.js"></script>
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
