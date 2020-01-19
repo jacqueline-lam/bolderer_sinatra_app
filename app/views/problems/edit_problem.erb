@@ -27,7 +27,7 @@
     <li>Styles: <%= @problem.styles_pretty %></li>
   </ul>
 
-  <h3> Edit Problem # <%=@problem.id %></h3>
+  <h3> Edit Problem:</h3>
 
   <!-- Date -->
   <label>Date: </label>
@@ -58,12 +58,12 @@
     </input>
 
     <br>
-  <% end %>
+  <% end %><br>
 
   <!-- Problem Image URL-->
-  <label>Image URL</label>
+  <label>Image URL:</label>
   <input type="text" name="problem[image]" value="<%= @problem.image %>">
   <br><br>
 
-<input type="submit" value="submit">
+  <button class="btn btn-sm btn-success" type="submit">Edit Problem</button><br>
 </form>

@@ -1,16 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed&display=swap');
 
+html{
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   /*background-color: lightblue;*/
   /*line-height: 18px;*/
+  padding-bottom: 10px;
+  margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
 .container{
+  width: auto;
+  padding: 10px 15px;
   /*background: #fff;*/
-  padding-top: 10px;
+  /*padding-top: 10px;*/
   /* Margin bottom by footer height */
-  margin: 5%, 5%, 0%, 5%;
+  /*margin: 5%, 5%, 10%, 5%;*/
   /*background-image: url(../images/.png);*/
   /*background-repeat: no-repeat;*/
   /*background-attachment:fixed;*/
@@ -25,7 +34,7 @@ h1, h2, h3, h4{
 
 h1{
   text-align: center;
-  padding-bottom: 20px;
+  padding-bottom: 5%;
 }
 
 /* ERROR MESSAGE ON EDIT PROBLEM '/problems/edit_problem' IEW*/
@@ -59,18 +68,18 @@ h1{
 .footer {
   position: absolute;
   padding-left: 20px;
-  bottom: 0px;
+  bottom: 0;
   width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #EBEBEB;
+  height: 50px; /* Set the fixed height of the footer here */
+  line-height: 40px; /* Vertically center the text there */
+  background-color: #f5f5f5;
 }
 
-/*footer .container{
+footer .container{
   margin: 0;
   width:100%;
-}*/
+}
 
 .text-muted {
-  margin: 20px 0;
+  margin: 1px 0;
 }
