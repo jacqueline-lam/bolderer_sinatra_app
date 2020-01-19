@@ -22,8 +22,8 @@ class ProblemsController < ApplicationController
   end
 
   post '/problems' do
-    @problem = Problem.new(params[:problem])
-    if @problem.style_ids.empty?
+    problem = Problem.new(params[:problem])
+    if problem.style_ids.empty?
       @error = "Data invalid. Please select at least one style."
       @colors = Problem::COLORS
       @grades = Problem::GRADES
@@ -31,10 +31,10 @@ class ProblemsController < ApplicationController
       erb :"/problems/new"
     else
       # persist problem object to db
-      @problem.user = current_user
-      if @problem.save
+      problem.user = current_user
+      if problem.save
         #take user to problem show page
-        redirect "/problems/#{@problem.id}"
+        redirect "/problems/#{problem.id}"
       else
         #re-render the form
         redirect '/problems/new'
