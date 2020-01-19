@@ -1,10 +1,12 @@
 # seed all Styles
 require_relative "../app/models/style.rb"
+require 'pry'
 
 # Don't let seed duplicate data more than once
-if Style.count > 0
-  abort
-end
+Style.destroy_all
+ProblemStyle.destroy_all
+Problem.destroy_all
+User.destroy_all
 
 styles = ["dyno", "crimps", "jugs", "slopers", "pinches", "pockets", "body tension", "compressions", "powerful", "flexible", "overhang", "dihedral", "slab"]
 styles.each do |style|
@@ -13,8 +15,10 @@ end
 
 # seed DB with dummy data
 # users and their respective problems
-user_1 = User.create(username: "jackie", password_digest: "$2a$12$1HgDwUJG2QrnDmn9pPmw..WhAsKWrXxpNInGeA12.fwnEUaHhHNj2")
-user_2 = User.create(username: "sam", password_digest: "$2a$12$SI5FA2XIMjSIkO1dV/iVu.VNfmVUCWw/FKJsWDrDdqfGuSLLeLRsS")
+user_1 = User.new({username: "jackie", password: "12345"})
+user_2 = User.new({username: "sam", password: "54321"})
+user_1.save!
+user_2.save!
 
 base_date = '1/1/2020'.to_date
 
@@ -43,15 +47,15 @@ problem_data.each do |data|
 end
 
 # Create some ProblemStyles
-Problem.all.each do |problem|
-  # Give it some random styles
-  num_styles = rand(1..3)
+# Problem.all.each do |problem|
+#   # Give it some random styles
+#   num_styles = rand(1..3)
 
-  num_styles.times do
-    rand_style_id = rand(1..Style.last.id)
-    ProblemStyle.create(
-      problem_id: problem.id,
-      style_id: rand_style_id,
-    )
-  end
-end
+#   num_styles.times do
+#     rand_style_id = rand(1..Style.last.id)
+#     ProblemStyle.create(
+#       problem_id: problem.id,
+#       style_id: rand_style_id,
+#     )
+#   end
+# end
