@@ -25,8 +25,8 @@ TODO: Delete this and the text above, and describe your gem
 
 Add this line to your terminal:
 
-```git
-clone "git@github.com:jacqueline-lam/bolderer_sinatra_app.git"
+```
+git clone "git@github.com:jacqueline-lam/bolderer_sinatra_app.git"
 ```
 
 And change directory to:
