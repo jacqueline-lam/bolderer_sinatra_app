@@ -29,12 +29,12 @@ Add this line to your terminal:
 git clone "git@github.com:jacqueline-lam/bolderer_sinatra_app.git"
 ```
 
-And change directory to:
+And change directory:
 
     $ cd bolderer_sinatra_app
 
 If you don't have Ruby, please install Ruby version `ruby 2.6.5p114 (2019-10-01 revision 67812) [x86_64-darwin18]
-`
+`.
 
 And then run:
 
@@ -52,7 +52,7 @@ And then run:
 
     $ shotgun
 
-And go to http://localhost:9393 or the IP Address:PORT provided.
+Lastly, go to http://localhost:9393 or the IP Address:PORT provided.
 
 ## Usage
 
