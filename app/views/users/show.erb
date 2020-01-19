@@ -19,6 +19,7 @@
       <th>Date</th>
       <th>Color</th>
       <th>Grade</th>
+      <th>Styles</th>
       <th></th>
       <th></th>
       <th></th>
@@ -31,6 +32,7 @@
         <td><%= problem.date %></td>
         <td><%= problem.color %></td>
         <td><%= problem.grade %></td>
+        <td><%= problem.styles_pretty %></td>
         <form action="/problems/<%= problem.id %>" method="get">
             <td><button class="btn btn-info" type="submit">See Details</button></td>
           </form>

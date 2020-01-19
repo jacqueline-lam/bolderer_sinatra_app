@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   get '/users/:id' do
     redirect '/' if !logged_in?
     @user = User.find_by(id: params[:id])
-    @problems = @user.problems
+    @problems = @user.problems.order('date desc')
     erb :"/users/show"
   end
 end

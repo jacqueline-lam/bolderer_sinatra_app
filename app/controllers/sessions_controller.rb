@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:username])
 
     if user && user.authenticate(params[:password])
-      #storing user_id key in session hash
+      # Storing user_id key in session hash
       session[:user_id] = user.id
       redirect "/users/#{user.id}"
     else
