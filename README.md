@@ -13,8 +13,11 @@
 * validation
 
 # Bolderer Sinatra App
+This Sinatra-based app is designed by jacqueline-lam, as a porfolio project for the Flatiron School Software Engineering cirriculum.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/test/gem`. To experiment with that code, run `bin/console` for an interactive prompt.
+The app provides aspiring boulderers with the opprounity to keep track of their climbs and analyze their climbing styles and progress month-over-month! Users may also check out other users' logs or get featured on the leaderboard.
+
+<!-- Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/test/gem`. To experiment with that code, run `bin/console` for an interactive prompt. -->
 
 TODO: Delete this and the text above, and describe your gem
 
