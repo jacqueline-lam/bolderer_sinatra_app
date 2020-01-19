@@ -15,8 +15,8 @@
   <!-- Problem Color -->
   <label>Color: </label>
   <% @colors.each do |color| %>
-    <input type="radio" name="problem[color]" value="<%= color %>" required><%= color %></input>
-  <% end %><br>
+    <input type="radio" name="problem[color]" value="<%= color %>" required> <%= color %></input>
+  <% end %><br><br>
 
   <!-- Problem Grade -->
   <label>Problem Grade: </label>
@@ -28,7 +28,7 @@
   </select><br>
 
   <!-- Problem Style -->
-  <h3>What is the style of the problem?</h3>
+  <h4>What is the style of the problem?</h4>
   <!-- iterate through styles -->
   <% @styles.each do |style| %>
     <!-- array of style IDs is stored inside 'problem' hash -->
@@ -46,6 +46,6 @@
   <input type="text" name="problem[image]">
   <br><br>
 
-  <button type="submit">Add Problem</button><br>
+  <button class="btn btn-sm btn-success" type="submit">Add Problem</button><br>
 
 </form>

@@ -1,9 +1,9 @@
 <!-- interpolate Ruby code using ERB tags -->
 <!-- evaluate Ruby code and compile into HTML code before it gets sent to browser -->
-<h1>Welcome, <%= @user.username %></h1>
+<h1>Welcome, @<%= @user.username %>!</h1>
 
 <!-- Link to create session -->
-<a href="/problems/new">Create a new problem</a>
+<h4><a href="/problems/new">Create a new problem</a></h4>
 
 <!-- Extra feature -->
 <!-- <h3>This Month's Leaderboard</h3> -->
@@ -60,3 +60,4 @@
       <% end %>
     </tbody>
   </table>
+<% end %>

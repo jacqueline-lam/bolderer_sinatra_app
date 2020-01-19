@@ -37,8 +37,8 @@
   <!-- dynamically generating radio-buttons -->
   <label>Color: </label>
   <% @colors.each do |color| %>
-    <input type="radio" name="problem[color]" value="<%= color %>" <%= 'checked' if @problem.color == color %>><%= color %></input>
-  <% end %><br>
+    <input type="radio" name="problem[color]" value="<%= color %>" <%= 'checked' if @problem.color == color %>> <%= color %></input>
+  <% end %><br><br>
 
   <!-- Problem Grade -->
   <label>Problem Grade: </label>
@@ -50,7 +50,7 @@
   </select><br>
 
   <!-- Problem Style -->
-  <h3>What is the style of the problem?</h3>
+  <h4>What is the style of the problem?</h4>
   <!-- iterate through styles -->
   <% @styles.each do |style| %>
     <input type="checkbox" name="problem[style_ids][]"  value="<%= style.id %>" <%='checked' if @problem.styles_pretty.include?(style.name) %>>

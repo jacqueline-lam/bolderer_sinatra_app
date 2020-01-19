@@ -16,24 +16,29 @@
     <link rel="stylesheet" href="/stylesheets/main.css"/>
   </head>
   <body>
-    <!-- Navigation -->
-    <div>
-      <div><a href="/problems">All Problems</a></div>
-      <div><a href="/">Home</a></div>
-      <% if logged_in? %>
-        <div><a href="/logout">Log Out</a></div>
-      <% else %>
-        <div><a href="/">Sign up/ Log in</a></div>
-      <% end %>
-    </div>
-    <div class="wrapper">
+    <div class="container">
+      <!-- Navigation -->
+      <div>
+        <div><a href="/problems">All Problems</a></div>
+        <div><a href="/">Home</a></div>
+        <% if logged_in? %>
+          <div><a href="/logout">Log Out</a></div>
+        <% else %>
+          <div><a href="/">Sign up/ Log in</a></div>
+        <% end %>
+      </div>
+      <div class="wrapper">
 
-        <%= yield %>
+          <%= yield %>
 
-      <footer class="branding">
-        <small>by <strong>Jacqueline Lam</strong></small>
-      </footer>
+      </div>
     </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">by Jacqueline K. Lam</p>
+       </div>
+    </footer>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
@@ -41,5 +46,6 @@
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
     <![endif]-->
+
   </body>
 </html>

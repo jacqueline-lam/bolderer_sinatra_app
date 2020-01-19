@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed&display=swap');
 
-body{
-  padding-top: 50px;
+body {
+  /*background-color: lightblue;*/
+  /*line-height: 18px;*/
+}
+
+.container{
+  /*background: #fff;*/
+  padding-top: 10px;
   /* Margin bottom by footer height */
-  margin-bottom: 80px;
+  margin: 5%, 5%, 0%, 5%;
   /*background-image: url(../images/.png);*/
   /*background-repeat: no-repeat;*/
   /*background-attachment:fixed;*/
@@ -17,6 +23,10 @@ h1, h2, h3, h4{
   font-family: roboto;
 }
 
+h1{
+  text-align: center;
+  padding-bottom: 20px;
+}
 
 /* ERROR MESSAGE ON EDIT PROBLEM '/problems/edit_problem' IEW*/
 /* The alert message box */
@@ -42,4 +52,25 @@ h1, h2, h3, h4{
 /* When moving the mouse over the close button */
 .closebtn:hover {
   color: black;
+}
+
+/* FOOTER
+-------------------------------------------------- */
+.footer {
+  position: absolute;
+  padding-left: 20px;
+  bottom: 0px;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #EBEBEB;
+}
+
+/*footer .container{
+  margin: 0;
+  width:100%;
+}*/
+
+.text-muted {
+  margin: 20px 0;
 }
