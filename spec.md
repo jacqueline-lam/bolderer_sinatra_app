@@ -17,7 +17,7 @@ Specs:
 - [x] Include user accounts with unique login attribute (username or email)
   - Validate uniquess of user login attribute by ensuring that there is no exisitng user account with the entered username (prevent duplicates)
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
-  - Logged in user has access to CRUD actions: ability create sessions (login)/ poblems, read, update or delete problems
+  - Logged in user has access to CRUD actions: ability to create sessions (login)/ poblems, read, update or delete problems
   - Controller actions following restful conventions and map to CRUD actions
   - Mapping URL in uniform manner to specific HTML verb we want -> to data we want to get/post -> to specific view we want to render;
 - [x] Ensure that users can't modify content created by other users

@@ -31,7 +31,7 @@
     <tbody>
       <% @problems.each do |problem| %>
         <tr>
-          <td><%= problem.user.username %></td>
+          <td><a href="/problems"><%= problem.user.username %></a></td>
           <td><%= problem.date %></td>
           <td><%= problem.color %></td>
           <td><%= problem.grade %></td>
