@@ -1,5 +1,13 @@
 <h2>Log a new problem</h2>
-  <!-- when sending form  to controller, all name attributes will be stored in params hash; name to point to key, vaule = data submitted by user   -->
+<!-- Print error message -->
+<% if @error %>
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong>Error!</strong> Data invalid. Please select at least one style.
+  </div>
+<% end %>
+
+<!-- Display form -->
 <form action="/problems" method="POST">
   <!-- Date -->
   <label>Date: </label>
@@ -12,7 +20,7 @@
 
   <!-- Problem Grade -->
   <label>Problem Grade: </label>
-  <select name="problem[grade]" required>
+  <select name="problem[grade]">
     <option value="">Choose a V-grade</option>
     <% @grades.each do |grade| %>
       <option value="<%= grade %>"><%= grade %></option>

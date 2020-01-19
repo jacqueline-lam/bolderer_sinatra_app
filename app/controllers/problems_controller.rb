@@ -23,15 +23,22 @@ class ProblemsController < ApplicationController
 
   post '/problems' do
     @problem = Problem.new(params[:problem])
-    # persist problem object to db
-    @problem.user = current_user
-
-    if @problem.save
-      #take user to problem show page
-      redirect "/problems/#{@problem.id}"
+    if @problem.style_ids.empty?
+      @error = "Data invalid. Please select at least one style."
+      @colors = Problem::COLORS
+      @grades = Problem::GRADES
+      @styles = Style.all
+      erb :"/problems/new"
     else
-      #re-render the form
-      redirect '/problems/new'
+      # persist problem object to db
+      @problem.user = current_user
+      if @problem.save
+        #take user to problem show page
+        redirect "/problems/#{@problem.id}"
+      else
+        #re-render the form
+        redirect '/problems/new'
+      end
     end
   end
 
