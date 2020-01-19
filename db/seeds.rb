@@ -23,7 +23,7 @@ user_2.save!
 base_date = '1/1/2020'.to_date
 
 problem_data = [
-  [base_date, "red", "V2", user_1.id],
+  [base_date, "red", "V5", user_1.id],
   [base_date + 1.day, "white", "V3", user_1.id],
   [base_date + 2.day, "yellow", "V4", user_1.id],
   [base_date + 3.day, "lime", "V5", user_1.id],

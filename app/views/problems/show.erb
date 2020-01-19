@@ -4,7 +4,7 @@
 <ul>
   <li>Color: <%= @problem.color %></li>
   <li>Grade: <%= @problem.grade %></li>
-  <li>Image: <%= @problem.image %> </li>
+  <li>Image:<br><%= @problem.image %> </li>
   <!-- helper method to display style in sentence -->
   <li>Styles: <%= @problem.styles_pretty %></li>
 </ul>
@@ -13,17 +13,17 @@
 <% if @problem.user == current_user %>
   <!-- Add edit problem button -->
   <form action="/problems/<%= @problem.id %>/edit" method="GET">
-  <button type="submit">Edit Problem</button>
+  <button class="btn btn-primary btn-sm" type="submit">Edit Problem</button>
   </form>
 
   <!-- Delete problem -->
   <form action="/problems/<%= @problem.id %>/delete" method="POST">
     <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Problem">
+    <button class="btn btn-sm btn-danger" type="submit">Delete Problem</button>
   </form>
 
   <!-- Add problem -->
   <form action="/problems/new" method="GET">
-    <button type="submit">Add new problem </button>
+    <button class="btn btn-success" type="submit">Add new problem </button>
   </form>
 <% end %>
