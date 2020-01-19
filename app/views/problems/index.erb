@@ -1,7 +1,6 @@
 <!-- interpolate Ruby code using ERB tags -->
 <!-- evaluate Ruby code and compile into HTML code before it gets sent to browser -->
 <h1>Welcome, <%= @user.username %></h1>
-<h2>Problems</h2>
 
 <!-- Link to create session -->
 <a href="/problems/new">Create a new problem</a>
@@ -20,11 +19,12 @@
 <% else %>
 
   <table class="table table-bordered table-striped table-hover">
-    <thead>
+    <thead class="thead-dark">
       <th>Username</th>
       <th>Date</th>
       <th>Color</th>
       <th>Grade</th>
+      <th></th>
       <th></th>
       <th></th>
     </thead>
@@ -35,6 +35,10 @@
           <td><%= problem.date %></td>
           <td><%= problem.color %></td>
           <td><%= problem.grade %></td>
+          <form action="/problems/<%= problem.id %>" method="get">
+            <td><button class="btn btn-info" type="submit">See Details</button></td>
+          </form>
+
           <% if problem.user == current_user %>
             <form action="/problems/<%= problem.id %>/edit" method="GET">
                <td>
@@ -56,24 +60,3 @@
       <% end %>
     </tbody>
   </table>
-
-  <% @problems.each do |problem| %>
-    <ul>
-      <li>
-        <%= @user.username %>: <a href="/problems/<%= problem.id %>"><%= problem.date %> — <%= problem.color %> <%= problem.grade %></a>
-        <!-- If currently logged_in user created this problem -->
-        <% if problem.user == current_user %>
-          <!-- Edit problem button -->
-          <form action="/problems/<%= problem.id %>/edit" method="GET">
-             <button type="submit">Edit Problem</button>
-          </form>
-          <!-- Delete problem button -->
-          <form action="/problems/<%= problem.id %>/delete" method="POST">
-            <input id="hidden" type="hidden" name="_method" value="DELETE">
-            <input type="submit" value="Delete Problem">
-          </form>
-        <% end %>
-      </li>
-    </ul>
-  <% end %>
-<% end %>

@@ -2,12 +2,21 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed&display=swap');
 
 body{
+  padding-top: 50px;
+  /* Margin bottom by footer height */
+  margin-bottom: 80px;
+  /*background-image: url(../images/.png);*/
+  /*background-repeat: no-repeat;*/
+  /*background-attachment:fixed;*/
+  /*background-size: cover;*/
+  /*background-position: bottom center;*/
   font-family: 'IBM Plex Sans Condensed', sans-serif;
 }
 
 h1, h2, h3, h4{
   font-family: roboto;
 }
+
 
 /* ERROR MESSAGE ON EDIT PROBLEM '/problems/edit_problem' IEW*/
 /* The alert message box */
