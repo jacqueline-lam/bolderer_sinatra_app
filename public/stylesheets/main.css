@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed&display=swap');
 
-img{
-  width: 100%;
-  height: auto;
-}
 
 .navbar-brand img{
   position: relative;
@@ -34,6 +30,33 @@ footer .container{
   margin: 1px 0;
 }
 
+
+/* ERROR MESSAGE
+-------------------------------------------------*/
+/* The alert message box */
+.alert {
+  padding: 20px;
+  background-color: #f44336; /* Red */
+  color: white;
+  margin-bottom: 15px;
+}
+
+/* The close button */
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
 
 /*Body
 ------------------------------------------------------*/
@@ -71,63 +94,21 @@ h1, h2, h3, h4{
 
 h1{
   font-weight: bold;
+  font-size: 90px;
   text-align: center;
   padding-bottom: 5%;
-/*  color: rgb(239,94,72);
-  font-family: "roboto bold"
-  font-size: 80px;*/
-/*  text-shadow: 0 1px 0 #ccc,
-               0 2px 0 #c9c9c9,
-               0 3px 0 #bbb,
-               0 4px 0 #b9b9b9,
-               0 5px 0 #aaa,
-               0 6px 1px rgba(0,0,0,.1),
-               0 0 5px rgba(0,0,0,.1),
-               0 1px 3px rgba(0,0,0,.3),
-               0 3px 5px rgba(0,0,0,.2),
-               0 5px 10px rgba(0,0,0,.25),
-               0 10px 10px rgba(0,0,0,.2),
-               0 20px 20px rgba(0,0,0,.15);
+  text-shadow: 2px 2px #000000;
+  color: #ccb200;
 }
-*/
+
 
 p, ul{
   font-size: 20px;
   line-height: 130%;
 }
 
-
-/* ERROR MESSAGE
--------------------------------------------------*/
-/* The alert message box */
-.alert {
-  padding: 20px;
-  background-color: #f44336; /* Red */
-  color: white;
-  margin-bottom: 15px;
-}
-
-/* The close button */
-.closebtn {
-  margin-left: 15px;
-  color: white;
-  font-weight: bold;
-  float: right;
-  font-size: 22px;
-  line-height: 20px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-/* When moving the mouse over the close button */
-.closebtn:hover {
-  color: black;
-}
-
-/*Imgur Embed Image
---------------------------------------------------*/
-iframe .imgur-embed-iframe-pub.image{
-  background-color: white;
+.rounded{
+  width: 100%; height: auto;"
 }
 
 /*Navigation
