@@ -45,12 +45,17 @@ body {
 }
 
 h1, h2, h3, h4{
+  padding-top: 30px;
   font-family: roboto;
 }
 
 h1{
   text-align: center;
   padding-bottom: 5%;
+}
+p, ul{
+  font-size: 20px;
+  line-height: 130%;
 }
 
 /* ERROR MESSAGE

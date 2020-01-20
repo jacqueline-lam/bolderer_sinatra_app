@@ -11,19 +11,23 @@
 
 <br><br>
 <% if @problem.user == current_user %>
-  <!-- Add edit problem button -->
-  <form action="/problems/<%= @problem.id %>/edit" method="GET">
-  <button class="btn btn-primary btn-sm" type="submit">Edit Problem</button>
-  </form>
-
-  <!-- Delete problem -->
-  <form action="/problems/<%= @problem.id %>/delete" method="POST">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <button class="btn btn-sm btn-danger" type="submit">Delete Problem</button>
-  </form>
-
-  <!-- Add problem -->
-  <form action="/problems/new" method="GET">
-    <button class="btn btn-success" type="submit">Add new problem </button>
-  </form>
+  <div class="btn-group">
+    <!-- Add edit problem button -->
+    <form action="/problems/<%= @problem.id %>/edit" method="GET">
+    <button class="btn btn-primary" type="submit">Edit Problem</button>
+    </form>
+  </div>
+  <div class="btn-group">
+    <!-- Delete problem -->
+    <form action="/problems/<%= @problem.id %>/delete" method="POST">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <button class="btn btn-danger" type="submit">Delete Problem</button>
+    </form>
+  </div>
+  <div class="btn-group">
+    <!-- Add problem -->
+    <form action="/problems/new" method="GET">
+      <button class="btn btn-success" type="submit">Add new problem </button>
+    </form>
+  </div>
 <% end %>
