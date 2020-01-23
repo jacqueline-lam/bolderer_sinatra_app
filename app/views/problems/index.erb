@@ -6,18 +6,36 @@
 <h4><a href="/problems/new">Create a new problem</a></h4>
 
 <!-- Extra features -->
-<h3>Leaderboard</h3>
-<h4>Redpoint Winners</h4>
-<i>Who climbed the most problems this month?</i>
-<% @users_and_problem_count[0..4].each do |user, count| %>
-  <p>@<%= user.username %> - <%= count %></p>
-<% end %>
+<div id="leaderboard">
+  <h3>Leaderboard</h3>
+  <div id="leaderboard_redpoint">
+    <h4>Redpoint Winners</h4>
+    <i>Who climbed the most problems this month?</i>
+    <table class="table table-bordered table-hover">
+      <thead class="thead-dark">
+        <th><img src="images/winner.png" alt="winner" width="30" height="30"></th>
+        <th>Winners</th>
+        <th>Problems sent</th>
+      </thead>
+      <tbody>
+        <% @users_and_problem_count[0..4].each_with_index do |arr, idx| %>
+          <tr>
+            <td class="bg-warning"><%= idx + 1 %></td>
+            <td class="bg-warning">@<a href="/users/<%= arr[0].id %>"><%= arr[0].username %></a></td>
+            <td class="bg-warning"><%= arr[1] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 
-<h4>Crusher of The Month</h4>
-<i>Who climbed the hardest grade this month?</i>
-<h5>Winner is... @<%= @best_climber %>!!</h5>
-<!-- <button class="button" type="button" data-hover="CLICK ME" data-active="@<%= @best_climber %>"><span>WINNER</span></button> -->
-
+  <div id="leaderboard_crusher">
+    <h4>Crusher of The Month</h4>
+    <i>Who climbed the hardest grade this month?</i>
+    <h5>Winner is... @<%= @best_climber %>!!</h5>
+    <!-- <button class="button" type="button" data-hover="CLICK ME" data-active="@<%= @best_climber %>"><span>WINNER</span></button> -->
+  </div>
+</div><hr>
 
 <!-- Display all sessions -->
 <h3>All problem logs:</h3>

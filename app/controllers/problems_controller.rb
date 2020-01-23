@@ -8,6 +8,7 @@ class ProblemsController < ApplicationController
   get '/problems' do
     redirect '/login' if !logged_in?
     @user = current_user
+
     # Leaderboard data
     # Users who climbed the most problems
     problems_by_month_year = Problem.all.group_by { |p|
@@ -20,7 +21,7 @@ class ProblemsController < ApplicationController
     @users_and_problem_count = users_grouped_by_problem_count.map { |key, value|
       [key, value.count]
     }.sort_by { |key, value| value }.reverse
-    #[[user_instance, problem_count], ...]
+    # returns array of [[user_instance, problem_count], ...]
 
     # Best climber - climbed hardest grade
     problems_sorted_by_grade = problems_this_month.sort_by { |problem| problem.grade }.reverse
