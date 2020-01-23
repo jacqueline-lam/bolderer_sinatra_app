@@ -2,6 +2,8 @@
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans+Condensed&display=swap');
 
 
+/*Navigation
+----------------------------------------------------*/
 .navbar-brand img{
   position: relative;
   width: 50px;
@@ -110,18 +112,3 @@ p, ul{
 .rounded{
   width: 100%; height: auto;"
 }
-
-/*Navigation
-----------------------------------------------------*/
-
-/*.navbar-brand{
-  font-family: 'Roboto';
-  font-size: 2.8em;
-  padding-right: 30px;
-}
-
-.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
-    color: white;
-    background-color: #edd955;
-}*/
-
