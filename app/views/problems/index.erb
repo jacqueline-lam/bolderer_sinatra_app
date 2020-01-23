@@ -6,7 +6,7 @@
 <h4><a href="/problems/new">Create a new problem</a></h4>
 
 <!-- Extra features -->
-<h3>This Month's Leaderboard</h3>
+<h3>Leaderboard</h3>
 <h4>Redpoint Winners</h4>
 <i>Who climbed the most problems this month?</i>
 <% @users_and_problem_count[0..4].each do |user, count| %>
@@ -15,7 +15,8 @@
 
 <h4>Crusher of The Month</h4>
 <i>Who climbed the hardest grade this month?</i>
-<button class="button" type="button" data-hover="CLICK ME" data-active=""><span>WINNER</span></button>
+<h5>Winner is... @<%= @best_climber %>!!</h5>
+<!-- <button class="button" type="button" data-hover="CLICK ME" data-active="@<%= @best_climber %>"><span>WINNER</span></button> -->
 
 
 <!-- Display all sessions -->
