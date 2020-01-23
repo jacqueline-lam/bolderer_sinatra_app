@@ -9,7 +9,19 @@ class ProblemsController < ApplicationController
     redirect '/login' if !logged_in?
     @user = current_user
     # Leaderboard data
-    @users_by_problems_count = User.all.sort_by {|user| user.problems.count}.reverse
+    # Users who climbed the most problems
+    problems_by_month_year = Problem.all.group_by { |p|
+      [p.date.month, p.date.year]
+    }
+    problems_this_month = problems_by_month_year[[Date.today.month, Date.today.year]]
+
+    users_grouped_by_problem_count = problems_this_month.group_by { |problem| problem.user }
+
+    @users_and_problem_count = users_grouped_by_problem_count.map { |key, value|
+      [key, value.count]
+    }.sort_by { |key, value| value }.reverse
+    #[[user_instance, problem_count], ...]
+
     # Display most recent problems first
     @problems = Problem.all.order('date desc')
     erb :'problems/index'

@@ -1,5 +1,6 @@
 <!-- Display one problem -->
 <h1>Problem id: <%=@problem.id%></h1>
+<h3>Sent by: <a href="/users/<%= @problem.user_id %>">@<%= @problem.user.username %></a></h3>
 <h3>Date: <%= @problem.date %></h3>
 <ul>
   <li>Color: <%= @problem.color %></li>
