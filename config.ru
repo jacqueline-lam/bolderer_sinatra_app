@@ -1,3 +1,4 @@
+responsible for loading our application environment, code, and libraries
 require './config/environment'
 
 if ActiveRecord::Migrator.needs_migration?

@@ -3,7 +3,7 @@ require './config/environment'
 # Use Appl;icationController as an inheritance point
 # to inherit all defaults and helper methods
 class ProblemsController < ApplicationController
-  # READ-  Index Action (all problems by all users)
+  # READ -  Index Action (all problems by all users)
   # make get request to '/problems'
   get '/problems' do
     redirect '/login' if !logged_in?
@@ -14,7 +14,7 @@ class ProblemsController < ApplicationController
   end
 
   # CREATE
-  # Shows the 'new problem' form and makes a new problem
+  # Shows 'new problem' form and makes a new problem
   get '/problems/new' do
     redirect '/login' if !logged_in?
     @colors = Problem::COLORS

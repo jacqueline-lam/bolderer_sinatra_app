@@ -1,3 +1,5 @@
+# Tell Ruby to make use of AR's built-in ORM methods
+# Make User a subclass of ActiveRecord::Base
 class User < ActiveRecord::Base
   # ActiveRecord macro works in conjunction with ruby gem bcrypt
   # to encrypt password, gives us ability to access attr `password`

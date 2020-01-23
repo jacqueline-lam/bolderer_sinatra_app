@@ -1,5 +1,8 @@
+# Connect up all files to the appripriate gems
+
 ENV['SINATRA_ENV'] ||= "development"
 
+# Loads bundler hence all gems in Gemfile. and app directory
 require 'bundler/setup'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 

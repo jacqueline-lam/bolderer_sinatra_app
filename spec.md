@@ -34,7 +34,10 @@ Specs:
     - user tries to signs in without correct user credentials
     - user leaves problem grade/ color/ date blank in the create problem form in 'problems/new.erb' (HTML generated error message)
     - user leaves problem style blank in Create Problem form or Edit Problem form
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [X] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+
+### Blog Post:
+https://dev.to/jacquelinelam/sinatra-web-app-mvc-sessions-and-routes-52on
 
 Confirm
 - [x] You have a large number of small Git commits
