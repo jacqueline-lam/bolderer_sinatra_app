@@ -1,5 +1,7 @@
 require './config/environment'
 
+# Use Appl;icationController as an inheritance point
+# to inherit all defaults and helper methods
 class ProblemsController < ApplicationController
   # READ-  Index Action (all problems by all users)
   # make get request to '/problems'

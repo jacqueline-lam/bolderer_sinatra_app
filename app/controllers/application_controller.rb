@@ -4,6 +4,7 @@ require './config/environment'
 # define the HTTP interface for our application
 class ApplicationController < Sinatra::Base
 
+  # tells controller where to find views and public directory
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
