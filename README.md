@@ -19,7 +19,10 @@ And then run:
 
     $ gem install bundler
 
-And then install the gems by running:
+
+Bundler gem provides us access to a terminal command: bundle install
+
+Install the gems and gem dependencies for this app by running:
 
     $ bundle install
 
