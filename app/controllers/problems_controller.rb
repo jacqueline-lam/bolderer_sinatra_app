@@ -8,6 +8,8 @@ class ProblemsController < ApplicationController
   get '/problems' do
     redirect '/login' if !logged_in?
     @user = current_user
+    # Leaderboard data
+    @users_by_problems_count = User.all.sort_by {|user| user.problems.count}.reverse
     # Display most recent problems first
     @problems = Problem.all.order('date desc')
     erb :'problems/index'
@@ -65,14 +67,11 @@ class ProblemsController < ApplicationController
     @colors = Problem::COLORS
     @grades = Problem::GRADES
     @styles = Style.all
-    # redirect '/problems' if current_user != @tweet.user
     erb :"problems/edit_problem"
   end
 
-  # UPDATE
-  # Edit
   # make a patch request to '/problems/:id/''
-  # find instnace of the model to update,
+  # find instance of the model to update,
   # using id from params, update and save instance
   patch "/problems/:id" do
     @problem = Problem.find(params[:id])
