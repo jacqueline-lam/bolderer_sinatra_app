@@ -58,12 +58,12 @@
     <tbody>
       <% @problems.each do |problem| %>
         <tr>
-          <td><a href="/users/<%= problem.user_id %>">@<%= problem.user.username %></a></td>
+          <td><h5><a href="/users/<%= problem.user_id %>">@<%= problem.user.username %></a></h5></td>
           <td><%= problem.date %></td>
           <td><%= problem.color %></td>
           <td><%= problem.grade %></td>
           <form action="/problems/<%= problem.id %>" method="get">
-            <td><button class="btn btn-info" type="submit">See Details</button></td>
+            <td><button class="btn btn-info btn-sm" type="submit">See Details</button></td>
           </form>
 
           <% if problem.user == current_user %>
