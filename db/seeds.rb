@@ -79,7 +79,9 @@ problem_data.each do |data|
   style_names = data[4]
   puts "Adding #{style_names} styles to problem #{p.id}"
 
+  # retutn array of style instances for each problem
   styles_with_these_names = style_names.map { |name| Style.find_by(name: name) }
+  # Create ProblemStyle to enable the many-to-many relationship
   styles_with_these_names.each do |style|
     ps = ProblemStyle.new
     ps.problem_id = p.id
