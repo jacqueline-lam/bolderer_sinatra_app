@@ -1,5 +1,6 @@
 require './config/environment'
 
+# riase error if user starts a server without migrations
 if ActiveRecord::Migrator.needs_migration?
   raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
 end
@@ -12,5 +13,5 @@ use Rack::MethodOverride
 use ProblemsController
 use SessionsController
 use UsersController
-# Run parent controller
+# Run parent controller to start an instance of our app
 run ApplicationController
