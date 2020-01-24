@@ -87,18 +87,3 @@ problem_data.each do |data|
     ps.save!
   end
 end
-
-
-# Create some ProblemStyles
-# Problem.all.each do |problem|
-#   # Give it some random styles
-#   num_styles = rand(1..3)
-
-#   num_styles.times do
-#     rand_style_id = rand(1..Style.last.id)
-#     ProblemStyle.create(
-#       problem_id: problem.id,
-#       style_id: rand_style_id,
-#     )
-#   end
-# end

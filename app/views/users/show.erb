@@ -1,7 +1,10 @@
 <h1> @<%= @user.username %>'s Problem Logs</h1>
 
 <!-- Link to create session -->
-<h4><a href="/problems/new">Create a new problem</a></h4>
+<form action="/problems/new" method="GET">
+  <button class="btn btn-outline-primary btn-lg" type="submit">Add new problem</button>
+</form>
+
 
 <!-- <h3><%= @user.username %>'s Project Summary</h3> -->
 <!-- Show charts -->

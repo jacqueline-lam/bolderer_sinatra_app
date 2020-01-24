@@ -3,7 +3,10 @@
 <h1>Welcome, @<%= @user.username %>!</h1>
 
 <!-- Link to create session -->
-<h4><a href="/problems/new">Create a new problem</a></h4>
+<!-- <h4><a href="/problems/new">Create a new problem</a></h4> -->
+<form action="/problems/new" method="GET">
+  <button class="btn btn-outline-primary btn-lg" type="submit">Add new problem</button>
+</form>
 
 <!-- Extra features -->
 <div id="leaderboard">
@@ -11,7 +14,7 @@
   <div id="leaderboard_redpoint">
     <h4>Redpoint Winners</h4>
     <i>Who climbed the most problems this month?</i>
-    <table class="table table-bordered table-hover">
+    <table class="table table-hover">
       <thead class="thead-dark">
         <th><img src="images/winner.png" alt="winner" width="30" height="30"></th>
         <th>Winners</th>
@@ -20,9 +23,9 @@
       <tbody>
         <% @users_and_problem_count[0..4].each_with_index do |arr, idx| %>
           <tr>
-            <td class="bg-warning"><%= idx + 1 %></td>
-            <td class="bg-warning">@<a href="/users/<%= arr[0].id %>"><%= arr[0].username %></a></td>
-            <td class="bg-warning"><%= arr[1] %></td>
+            <td class="rank-data" style="background-color: <%= ranking_color(idx + 1) %>"><%= idx + 1 %></td>
+            <td class="rank-data" style="background-color: <%= ranking_color(idx + 1) %>">@<a href="/users/<%= arr[0].id %>"><%= arr[0].username %></a></td>
+            <td class="rank-data" style="background-color: <%= ranking_color(idx + 1) %>"><%= arr[1] %></td>
           </tr>
         <% end %>
       </tbody>
@@ -38,7 +41,7 @@
 </div><hr>
 
 <!-- Display all sessions -->
-<h3>All problem logs:</h3>
+<h3>All Problem Logs</h3>
 <% if @problems.empty? %>
   <p>There are no existing problems!</p>
 <% else %>

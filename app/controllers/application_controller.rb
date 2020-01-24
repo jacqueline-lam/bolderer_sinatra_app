@@ -28,5 +28,21 @@ class ApplicationController < Sinatra::Base
     def current_user
       User.find_by(id: session[:user_id])
     end
+
+    def ranking_color(rank)
+      if rank == 1
+        return "#F8695A"
+      elsif rank == 2
+        return "#DE5853"
+      elsif rank == 3
+        return "#D55251"
+      elsif rank == 4
+        return "#CB4C4E"
+      elsif rank == 5
+        return "#C0454B"
+      else
+        return "#FFFFFF"
+      end
+    end
   end
 end

@@ -103,12 +103,31 @@ h1{
   color: #ccb200;
 }
 
+h3{
+  font-weight: bold;
+  text-shadow: 2px 2px #C0C0C0;
+  color: #0F4C81;
+  /*background-color: #EE4838;*/
+}
 
 p, ul{
   font-size: 20px;
   line-height: 130%;
 }
 
+a{
+  color: #75A5C6;
+}
+
+.btn{
+  display: block;
+  margin: 0 auto;
+}
+
 .rounded{
   width: 100%; height: auto;"
+}
+
+.rank-data {
+  color: #FFFFFF;
 }
