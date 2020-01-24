@@ -7,12 +7,7 @@
   </form>
 <% end %>
 
-<!-- <h3><%= @user.username %>'s Project Summary</h3> -->
-<!-- Show charts -->
-<!-- 1. Styles by Month-over-Month -->
-<!-- 2. Grades by Month-over-Month -->
-
-<!-- Display all sessions -->
+<!-- Display all problems -->
 <h3>All problem logs:</h3>
 <% if @problems.empty? %>
   <p>Looks like <%= @user.username %> doesn't have any problems!</p>
@@ -24,8 +19,10 @@
       <th>Grade</th>
       <th>Styles</th>
       <th></th>
-      <th></th>
-      <th></th>
+      <% if current_user == @user %>
+        <th></th>
+        <th></th>
+      <% end %>
     </thead>
     <tbody>
 
@@ -53,8 +50,9 @@
               </td>
             </form>
           <% else %>
-            <td></td>
-            <td></td>
+            <!-- blank columns -->
+            <td class="d-none"></td>
+            <td class="d-none"></td>
           <% end %>
         </tr>
       <% end %>
