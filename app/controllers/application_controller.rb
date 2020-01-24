@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    # enable app to use sessions keyword to access session hash
     enable :sessions
     set :session_secret, "session_cookie_encryption"
   end
