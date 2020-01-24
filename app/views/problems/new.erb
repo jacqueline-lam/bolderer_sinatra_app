@@ -11,7 +11,7 @@
 <form action="/problems" method="POST">
   <!-- Date -->
   <label>Date: </label>
-  <input type="date" name="problem[date]"required><br>
+  <input type="date" name="problem[date]"required><br><br>
   <!-- Problem Color -->
   <label>Color: </label>
   <% @colors.each do |color| %>
@@ -25,10 +25,10 @@
     <% @grades.each do |grade| %>
       <option value="<%= grade %>"><%= grade %></option>
     <% end %>
-  </select><br>
+  </select><br><br>
 
   <!-- Problem Style -->
-  <h4>What is the style of the problem?</h4>
+  <h5>Select the problem style(s):</h5>
   <!-- iterate through styles -->
   <% @styles.each do |style| %>
     <!-- array of style IDs is stored inside 'problem' hash -->
@@ -44,7 +44,7 @@
   <!-- Problem Image URL-->
   <label>Image URL:</label>
   <input type="text" name="problem[image]"><br>
-  <i>Instructions: Drop your image onto <a href="https://imgur.com">Imgur</a>. Click 'get share links' and copy the "Embed in HTML" link.</i>
+  <i>*Instructions: Drop your image onto <a href="https://imgur.com">Imgur</a>. Click 'get share links' and copy the "Embed in HTML" link.</i>
   <br><br>
 
   <button class="btn btn-lg btn-success" type="submit">Add Problem</button><br>

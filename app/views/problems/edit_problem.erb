@@ -16,8 +16,7 @@
   <!-- modifies an existing problem based on ID in the url -->
   <input id="hidden" type="hidden" name="_method" value="patch">
 
-  <h2> Original Problem:</h2>
-  <h3>Problem id: <%=@problem.id%></h3>
+  <h3>Original Problem — Problem id: <%=@problem.id%></h3>
   <h4>Date: <%= @problem.date %></h3>
   <ul>
     <li>Color: <%= @problem.color %></li>
@@ -25,13 +24,14 @@
     <li>Image: <br><%= @problem.image %> </li>
     <!-- helper method to display style in sentence -->
     <li>Styles: <%= @problem.styles_pretty %></li>
-  </ul>
+  </ul><hr>
 
-  <h3> Edit Problem:</h3>
+
+  <h3> Edit Problem</h3><br>
 
   <!-- Date -->
   <label>Date: </label>
-  <input type="date" name="problem[date]" value="<%= @problem.date %>"><br>
+  <input type="date" name="problem[date]" value="<%= @problem.date %>"><br><br>
 
   <!-- Problem Color -->
   <!-- dynamically generating radio-buttons -->
@@ -50,20 +50,20 @@
   </select><br>
 
   <!-- Problem Style -->
-  <h4>What is the style of the problem?</h4>
+  <h5>Select tproblem style(s):</h5>
   <!-- iterate through styles -->
   <% @styles.each do |style| %>
     <input type="checkbox" name="problem[style_ids][]"  value="<%= style.id %>" <%='checked' if @problem.styles_pretty.include?(style.name) %>>
       <%= style.name %>
     </input>
-
     <br>
   <% end %><br>
 
   <!-- Problem Image URL-->
   <label>Image URL:</label>
-  <input type="text" name="problem[image]" value="<%= @problem.image %>">
+  <input type="text" name="problem[image]" value='<%= @problem.image.to_str %>'>
   <br><br>
 
+  <!-- Submit button -->
   <button class="btn btn-lg btn-info" type="submit">Edit Problem</button><br>
 </form>
