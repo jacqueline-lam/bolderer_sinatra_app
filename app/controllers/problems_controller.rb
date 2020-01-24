@@ -52,9 +52,8 @@ class ProblemsController < ApplicationController
       @styles = Style.all
       erb :"/problems/new"
     else
-      # problem.image = nil if problem.image.empty?
-      # persist problem object to db
       problem.user = current_user
+      # persist problem object to db
       if problem.save
         #take user to problem show page
         redirect "/problems/#{problem.id}"
@@ -73,8 +72,7 @@ class ProblemsController < ApplicationController
     erb :"problems/show"
   end
 
-  # UPDATE
-  # Edit
+  # UPDATE - Edit
   # make a get request to '/problems/:id/edit'
   # renders view edit_problem.erb
   get "/problems/:id/edit" do
@@ -93,6 +91,7 @@ class ProblemsController < ApplicationController
   # using id from params, update and save instance
   patch "/problems/:id" do
     @problem = Problem.find(params[:id])
+    # styles must be selected
     if params[:problem].include?("style_ids")
       @problem.update(params[:problem])
       redirect "/problems/#{@problem.id}"
