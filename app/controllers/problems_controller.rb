@@ -6,7 +6,8 @@ class ProblemsController < ApplicationController
   # READ -  Index Action (all problems by all users)
   # make get request to '/problems'
   get '/problems' do
-    redirect '/login' if !logged_in?
+    redirect '/login' unless logged_in?
+
     @user = current_user
 
     # Leaderboard data
@@ -16,11 +17,11 @@ class ProblemsController < ApplicationController
     }
     problems_this_month = problems_by_month_year[[Date.today.month, Date.today.year]]
 
-    users_grouped_by_problem_count = problems_this_month.group_by { |problem| problem.user }
+    problems_grouped_by_user = problems_this_month.group_by { |problem| problem.user }
 
-    @users_and_problem_count = users_grouped_by_problem_count.map { |key, value|
-      [key, value.count]
-    }.sort_by { |key, value| value }.reverse
+    @users_and_problem_count = problems_grouped_by_user.map { |user, problems|
+      [user, problems.count]
+    }.sort_by { |arr| arr.last }.reverse
     # returns array of [[user_instance, problem_count], ...]
 
     # Best climber - climbed hardest grade
@@ -111,9 +112,11 @@ class ProblemsController < ApplicationController
       if problem && problem.delete
         redirect "/users/#{problem.user_id}"
       else
+        # show an error that the problem cannot be deleted
         redirect "/problems/#{params[:id]}"
       end
     else
+      # show an error that this user cant delete a problem that's not his/her own
       redirect '/problems'
     end
   end
