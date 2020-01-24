@@ -1,6 +1,6 @@
 require './config/environment'
 
-# riase error if user starts a server without migrations
+# riase error if I start a server without migrations
 if ActiveRecord::Migrator.needs_migration?
   raise 'Migrations are pending. Run `rake db:migrate` to resolve the issue.'
 end
