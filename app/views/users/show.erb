@@ -1,10 +1,11 @@
 <h1> @<%= @user.username %>'s Problem Logs</h1>
 
-<!-- Link to create session -->
-<form action="/problems/new" method="GET">
-  <button class="btn btn-outline-primary btn-lg" type="submit">Add new problem</button>
-</form>
-
+<!-- Allow user to add problem if they are on their own profile -->
+<% if current_user == @user %>
+  <form action="/problems/new" method="GET">
+    <button class="btn btn-outline-primary btn-lg" type="submit">Add new problem</button>
+  </form>
+<% end %>
 
 <!-- <h3><%= @user.username %>'s Project Summary</h3> -->
 <!-- Show charts -->
