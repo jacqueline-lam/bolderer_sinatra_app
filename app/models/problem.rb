@@ -4,7 +4,9 @@ class Problem < ActiveRecord::Base
   has_many :styles, :through => :problem_styles
   validates_presence_of :date, :color, :grade
 
-  # Constants for colors as a single source of truth so that if we ever need to change colors, we can do so here and all the other places it's referenced will updated as well
+  # Constants for colors + grades as a single source of truth
+  # If we ever need to change colors, we can do so here
+  # other places it's referenced will updated as well
   COLORS = [
     "White",
     "Red",

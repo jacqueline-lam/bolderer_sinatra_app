@@ -31,15 +31,16 @@ class ApplicationController < Sinatra::Base
     end
 
     def ranking_color(rank)
-      if rank == 1
+      case rank
+      when 1
         return "#F8695A"
-      elsif rank == 2
+      when 2
         return "#DE5853"
-      elsif rank == 3
+      when 3
         return "#D55251"
-      elsif rank == 4
+      when 4
         return "#CB4C4E"
-      elsif rank == 5
+      when 5
         return "#C0454B"
       else
         return "#FFFFFF"

@@ -11,20 +11,23 @@ class ProblemsController < ApplicationController
     @user = current_user
 
     # Leaderboard data
-    # Users who climbed the most problems
+    # 1. Users who climbed the most problems
+    # Order problems by month and year
     problems_by_month_year = Problem.all.group_by { |p|
       [p.date.month, p.date.year]
     }
+    # Only take problems from this month
     problems_this_month = problems_by_month_year[[Date.today.month, Date.today.year]]
 
+    # Group problems by users
     problems_grouped_by_user = problems_this_month.group_by { |problem| problem.user }
 
+    # Returns array of [[user_instance, problem_count], ...] sorted by count
     @users_and_problem_count = problems_grouped_by_user.map { |user, problems|
       [user, problems.count]
     }.sort_by { |arr| arr.last }.reverse
-    # returns array of [[user_instance, problem_count], ...]
 
-    # Best climber - climbed hardest grade
+    # 2. Best climber - climbed hardest grade
     problems_sorted_by_grade = problems_this_month.sort_by { |problem| problem.grade }.reverse
     @best_climber = problems_sorted_by_grade.first.user
 
