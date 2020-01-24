@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
 
   post '/login' do
     user = User.find_by(username: params[:username])
-
+    # authenticate method turns user's password input into a hash
+    # and compare it w/ hashed password stored in database
     if user && user.authenticate(params[:password])
       # Storing user_id key in session hash
       session[:user_id] = user.id
