@@ -50,7 +50,7 @@
   </select><br>
 
   <!-- Problem Style -->
-  <h5>Select tproblem style(s):</h5>
+  <h5>Select the problem style(s):</h5>
   <!-- iterate through styles -->
   <% @styles.each do |style| %>
     <input type="checkbox" name="problem[style_ids][]"  value="<%= style.id %>" <%='checked' if @problem.styles_pretty.include?(style.name) %>>

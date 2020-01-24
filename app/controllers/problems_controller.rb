@@ -111,11 +111,9 @@ class ProblemsController < ApplicationController
       if problem && problem.delete
         redirect "/users/#{problem.user_id}"
       else
-        # show an error that the problem cannot be deleted
         redirect "/problems/#{params[:id]}"
       end
     else
-      # show an error that this user cant delete a problem that's not his/her own
       redirect '/problems'
     end
   end
