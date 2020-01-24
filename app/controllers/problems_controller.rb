@@ -1,39 +1,17 @@
 require './config/environment'
 
-# Use Appl;icationController as an inheritance point
+# Use ApplicationController as an inheritance point
 # to inherit all defaults and helper methods
 class ProblemsController < ApplicationController
   # READ -  Index Action (all problems by all users)
   # make get request to '/problems'
   get '/problems' do
     redirect '/login' unless logged_in?
-
     @user = current_user
+    @users_and_problem_count = Problem.users_and_problem_count
+    @best_climber = Problem.problems_sorted_by_grade.first.user
 
-    # Leaderboard data
-    # 1. Users who climbed the most problems
-    # Group problems by month and year (result of block)
-    # Returns a hash - keys = [Month, Year], values = arrays of problems that correspond to key
-    problems_by_month_year = Problem.all.group_by { |p|
-      [p.date.month, p.date.year]
-    }
-    # Only take problems from this month
-    problems_this_month = problems_by_month_year[[Date.today.month, Date.today.year]]
-
-    # Group problems by users
-    problems_grouped_by_user = problems_this_month.group_by { |problem| problem.user }
-
-    # Returns array of [[user_instance, problem_count], ...] sorted by count
-    @users_and_problem_count = problems_grouped_by_user.map { |user, problems|
-      [user, problems.count]
-    }.sort_by { |arr| arr.last }.reverse
-
-    # 2. Best climber - climbed hardest grade
-    problems_sorted_by_grade = problems_this_month.sort_by { |problem| problem.grade }.reverse
-    @best_climber = problems_sorted_by_grade.first.user
-
-    # Query Problem table for all problem instances
-    @problems = Problem.all.order('date desc')
+    @problems = Problem.problems_by_date
     erb :'problems/index'
   end
 
@@ -41,22 +19,17 @@ class ProblemsController < ApplicationController
   # Shows 'new problem' form and makes a new problem
   get '/problems/new' do
     redirect '/login' if !logged_in?
-    @colors = Problem::COLORS
-    @grades = Problem::GRADES
-    @styles = Style.all
+    problem_attr
     erb :'problems/new'
   end
 
   post '/problems' do
-    problem = Problem.new(params[:problem])
+    problem = current_user.problems.new(params[:problem])
     if problem.style_ids.empty?
       @error = "Data invalid. Please select at least one style."
-      @colors = Problem::COLORS
-      @grades = Problem::GRADES
-      @styles = Style.all
+      problem_attr
       erb :"/problems/new"
     else
-      problem.user = current_user
       # persist problem object to db
       if problem.save
         #take user to problem show page
@@ -84,9 +57,7 @@ class ProblemsController < ApplicationController
     @problem = Problem.find(params[:id])
     # User authorization - only the user who created the problem can edit it
     redirect '/problems' if current_user != @problem.user
-    @colors = Problem::COLORS
-    @grades = Problem::GRADES
-    @styles = Style.all
+    problem_attr
     erb :"problems/edit_problem"
   end
 
@@ -101,8 +72,7 @@ class ProblemsController < ApplicationController
       redirect "/problems/#{@problem.id}"
     else
       @error = true
-      @colors = Problem::COLORS
-      @styles = Style.all
+      problem_attr
       erb :"/problems/edit_problem"
     end
   end
@@ -122,4 +92,10 @@ class ProblemsController < ApplicationController
     end
   end
 
+  private
+    def problem_attr
+      @colors = Problem::COLORS
+      @grades = Problem::GRADES
+      @styles = Style.all
+    end
 end

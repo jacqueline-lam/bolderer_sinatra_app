@@ -40,4 +40,40 @@ class Problem < ActiveRecord::Base
   def styles_pretty
     styles.map(&:name).join(', ')
   end
+
+  def self.problems_by_month_year
+    # Leaderboard data
+    # 1. Users who climbed the most problems
+    # Group problems by month and year (result of block)
+    # Returns a hash - keys = [Month, Year], values = arrays of problems that correspond to key
+    Problem.all.group_by { |p|
+      [p.date.month, p.date.year]
+    }
+  end
+
+  # Only take problems from this month
+  def self.problems_this_month
+    problems_by_month_year[[Date.today.month, Date.today.year]]
+  end
+
+  # Group problems by users
+  def self.problems_grouped_by_user
+    problems_this_month.group_by { |problem| problem.user }
+  end
+
+  # Returns array of [[user_instance, problem_count], ...] sorted by count
+  def self.users_and_problem_count
+    problems_grouped_by_user.map { |user, problems| [user, problems.count] }.sort_by { |arr| arr.last }.reverse
+  end
+
+  # 2. Best climber - climbed hardest grade
+  def self.problems_sorted_by_grade
+    problems_this_month.sort_by { |problem| problem.grade }.reverse
+  end
+
+  # Query Problem table for all problem instances
+  def self.problems_by_date
+    Problem.all.order('date desc')
+  end
+
 end

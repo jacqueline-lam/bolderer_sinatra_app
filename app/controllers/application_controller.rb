@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
       #check if current_user variable is set
       #!! converts value to boolean
       # use session to determine the definition of being logged in
-      !!User.find_by(id: session[:user_id])
+      !!current_user
     end
 
     def current_user
