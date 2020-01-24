@@ -1,9 +1,9 @@
 <h3>Log In</h3><br>
 <!-- Print error message -->
-<% if @error %>
+<% if !!@error %>
   <div class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    <strong>Error!</strong> Invalid username or password. Please try again.
+    <strong>Error!</strong> <%= @error %>
   </div>
 <% end %>
 
