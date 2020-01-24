@@ -26,9 +26,9 @@ class ProblemsController < ApplicationController
 
     # Best climber - climbed hardest grade
     problems_sorted_by_grade = problems_this_month.sort_by { |problem| problem.grade }.reverse
-    @best_climber = problems_sorted_by_grade.first.user.username
+    @best_climber = problems_sorted_by_grade.first.user
 
-    # query Problem table for all problem instances
+    # Query Problem table for all problem instances
     @problems = Problem.all.order('date desc')
     erb :'problems/index'
   end

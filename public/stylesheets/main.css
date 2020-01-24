@@ -133,6 +133,11 @@ a{
   font-size: 120%;
 }
 
+#leaderboard_crusher span {
+  color: #F8695A;
+  font-weight: 130%;
+}
+
 .rank-data {
   color: #FFFFFF;
 }
