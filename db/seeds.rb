@@ -1,7 +1,4 @@
 # Add seed data here. Seed your database with `rake db:seed`
-# seed all Styles
-require_relative "../app/models/style.rb"
-require 'pry'
 
 puts "Running DB seed..."
 
