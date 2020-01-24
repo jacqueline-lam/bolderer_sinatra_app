@@ -12,7 +12,8 @@ class ProblemsController < ApplicationController
 
     # Leaderboard data
     # 1. Users who climbed the most problems
-    # Order problems by month and year
+    # Group problems by month and year (result of block)
+    # Returns a hash - keys = [Month, Year], values = arrays of problems that correspond to key
     problems_by_month_year = Problem.all.group_by { |p|
       [p.date.month, p.date.year]
     }

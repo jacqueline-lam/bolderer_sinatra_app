@@ -2,7 +2,7 @@
 
 ENV['SINATRA_ENV'] ||= "development"
 
-# Requires all gems in Gemfile. and app directory
+# Requires all gems in Gemfile and app directory
 require 'bundler/setup'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
