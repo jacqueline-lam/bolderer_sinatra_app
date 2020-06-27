@@ -58,7 +58,6 @@ class Problem < ActiveRecord::Base
 
   # Group problems by users
   def self.problems_grouped_by_user
-    binding.pry
     self.problems_this_month.group_by { |problem| problem.user }
   end
 
